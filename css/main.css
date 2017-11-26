@@ -17,11 +17,13 @@ html {
 }
 html, body {
     padding: 0;
-    margin: 0;
-    overflow-x: hidden;
+    margin: 0;    
     background-color: #fff;
     width: 100%;
     height: 100%;   
+}
+body {
+    overflow-x: hidden;
 }
 
 /*
@@ -116,7 +118,13 @@ textarea {
     clear: both;
 }
 
-
+.middlefix::before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -0.05em;
+}
 
 .wrapper {
     width: 1370px;
@@ -133,6 +141,8 @@ header {
     height: 112px;
     position: fixed;
     top: 0;
+    background-color: #fff;
+    z-index: 10;
 }
 header .wrapper {
     position: relative;
@@ -204,4 +214,331 @@ header .wrapper {
 header.scroll .header__calk_but {
     width: 224px;
     margin-left: 81px;
+}
+
+/* ==========================================================================
+   TOP SLIDER classes
+   ========================================================================== */
+.top__slider {    
+    margin: 112px auto 0 auto;    
+    position: relative;
+}
+.top__slider_list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;    
+}
+.top__slider_list li {
+
+}
+.top__slider .slick-prev {    
+    width: 32px;
+    height: 60px;
+    display: block;
+    background: url('../img/arrow-left.svg') no-repeat center / 32px 60px;
+    font-size: 0;
+    position: absolute;
+    left: 11.5vw;
+    top: 50%;
+    margin-top: -30px;
+    cursor: pointer;
+    z-index: 1;
+    border: none;
+    outline: none;
+
+}
+.top__slider .slick-next {
+    width: 32px;
+    height: 60px;
+    display: block;
+    background: url('../img/arrow-right.svg') no-repeat center / 32px 60px;
+    font-size: 0;
+    position: absolute;
+    right: 11.5vw;
+    top: 50%;
+    margin-top: -30px;
+    cursor: pointer;
+    z-index: 1;
+    border: none;
+    outline: none;
+}
+.top__slider_dotted {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    left: 0;
+    bottom: 40px;
+}
+.top__slider_list-dots {
+    position: absolute;
+    bottom: 40px;
+    width: 100%;
+    text-align: center;
+}
+.top__slider .slick-dots {    
+    display: table;
+    height: 16px;
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+}
+.top__slider .slick-dots li {
+    width: 16px;
+    height: 16px;
+    float: left;
+    margin: 0 24px 0 0;
+    border-radius: 50%;
+    background-color: #fff;
+    padding: 0;
+    cursor: pointer;
+}
+.top__slider .slick-dots li.slick-active {
+    width: 10px;
+    height: 10px;
+    background-color: transparent;
+    border: 3px solid #fff;
+}
+.top__slider .slick-dots li:last-child {
+    margin: 0;
+}
+.top__slider .slick-dots li button {
+    display: none;
+}
+/* ==========================================================================
+   MAIN classes
+   ========================================================================== */
+.main__tabs {
+    height: 216px;
+    position: relative;    
+}
+.main__tabs_roller {
+    position: absolute;
+    width: 100%;
+    height: 216px;
+    top: 0;
+    left: -249px;
+    background-color: #f5f5f5;    
+}
+.main__tabs_roller-valik {
+    content: "";
+    background: url('../img/valik-sprite.png') no-repeat center / auto 268px;
+    display: block;
+    width: 273px;
+    height: 268px;
+    position: absolute;
+    top: -33px;
+    right: -245px;
+    background-image: 
+}
+.main__tabs .wrapper {
+    position: relative;
+    height: 216px;
+}
+.main__tabs_ava {
+    width: 313px;
+    height: 313px;
+    object-fit: contain;
+    background-color: #ffffff;
+    box-shadow: 0 8px 16px 0 rgba(30, 31, 36, 0.1);
+    text-align: center;
+    position: relative;
+    top:-52px;
+    z-index: 1;
+    float: left;
+}
+.main__tabs_ava::before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -0.05em;
+}
+.main__tabs_ava img {
+    width: 282px;
+    height: 242px;
+    vertical-align: middle;
+}
+.main__tabs_title {
+    font: bold 55px/1 'PT Sans Narrow';
+    color: #000000;
+    float: left;
+    margin: 51px 0 0 66px;
+    padding: 0;
+}
+.main__tabs_calc {
+    width: 224px;
+    height: 56px;
+    background-color: #d0021b;    
+    font: bold 24px/56px 'PT Sans Narrow';    
+    text-align: center;
+    color: #ffffff;
+    float: right;
+    margin: 52px 35px 0 0;
+    transition: all 150ms ease;
+    cursor: pointer;
+}
+
+.main__tabs_calc:hover {
+    background-color: #e2344a;
+}
+.main__tabs_list {
+    position: absolute;
+    bottom: 0;
+    left: 367px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+}
+.main__tabs_list li {
+    width: 273px;
+    height: 45px;
+    float: left;    
+    font: 24px/45px 'PT Sans Narrow';    
+    text-align: center;
+    color: #000000;
+    cursor: pointer;
+    position: relative;
+}
+.main__tabs_list li.current {
+    background-color: #fff;
+}
+.main__tabs_list li.current::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 7px;
+    background-color: #00c0f8;
+    position: absolute;
+    top: -7px;
+    left: 0;    
+}
+
+/* ==========================================================================
+   MAIN TAB-1 classes
+   ========================================================================== */
+.main__tab-1 {
+    margin-top: 205px;
+}
+.tab-1__use {
+
+}
+.tab-1__use-left {
+    width: 594px;
+    float: left;    
+}
+.tab-1__use-left h2 {
+    margin: 0 0 72px 0;
+    padding: 42px 0 0 0;
+    font: bold 45px/1 'PT Sans Narrow';
+    color: #000000;
+    position: relative;
+}
+.tab-1__use-left h2::after {
+    content: "";
+    display: block;
+    width: 64px;
+    height: 8px;
+    object-fit: contain;
+    background-color: #00bffb;
+    position: absolute;
+    left: 0;
+    bottom: -41px;
+}
+.tab-1__use-left h2 span {
+    position: relative;
+    z-index: 1;
+}
+.tab-1__use-left h2 b {    
+    font: bold 120px/1 'PT Sans Narrow';
+    text-transform: uppercase;    
+    color: #f5f5f5;
+    display: block;
+    position: absolute;
+    left: 0px;
+    bottom: -10px;
+}
+.tab-1__descr {  
+    width: 587px;  
+    font: 20px/26px 'PT Sans Narrow';    
+    color: #646464;
+}
+.tab-1__descr p {
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+.tab-1__use-right {
+    width: 735px;
+    float: right;
+}
+.video__player {
+    position: relative;
+    cursor: pointer;
+}
+.video__player::before {
+    content: "";
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    background: url('../img/play.svg') no-repeat center / cover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -50px 0 0 -50px;    
+    opacity: 0.7;
+    transition: opacity 250ms ease;
+}
+.video__player:hover::before {
+    opacity: 1;
+}
+.tab-1__photo {
+    width: 631px;
+    height: 631px;
+    margin: 145px auto 0 auto;
+    background: url('../img/circle.svg') no-repeat center / cover;
+    text-align: center;
+    position: relative;
+}
+.tab-1__photo img {
+    width: 556px;
+    height: 379px;
+    vertical-align: middle;
+}
+.tab-1__photo_wings {
+    position: absolute;
+    font: bold 36px/1 'PT Sans Narrow';
+    text-align: center;
+    color: #000000;
+}
+.tab-1__photo_wings.country {
+    width: 170px;
+    background: url('../img/flag-of-europe.png') no-repeat center top / 93px 62px;
+    padding-top: 87px;
+    top: -7px;
+    left: -172px;
+} 
+.tab-1__photo_wings.iso {
+    width: 130px;
+    background: url('../img/iso.png') no-repeat center top / 89px 90px;
+    padding-top: 123px;
+    bottom: 70px;
+    left: -152px;
+}
+.tab-1__photo_wings.honors {
+    width: 130px;
+    background: url('../img/medal-2017.png') no-repeat center top / 120px 118px;
+    padding-top: 127px;
+    top: -46px;
+    right: -168px;
+} 
+.tab-1__photo_wings.history {
+    width: 135px;    
+    background: url('../img/fill-1.svg') no-repeat center top / 133px 90px;
+    padding-top: 97px;
+    bottom: 59px;
+    right: -172px;
 }

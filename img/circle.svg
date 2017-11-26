@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="633" height="633" viewBox="0 0 633 633">
+    <defs>
+        <circle id="a" cx="19" cy="19" r="19"/>
+        <mask id="e" width="40" height="40" x="-1" y="-1">
+            <path fill="#fff" d="M-1-1h40v40H-1z"/>
+            <use xlink:href="#a"/>
+        </mask>
+        <circle id="b" cx="19" cy="19" r="19"/>
+        <mask id="f" width="40" height="40" x="-1" y="-1">
+            <path fill="#fff" d="M-1-1h40v40H-1z"/>
+            <use xlink:href="#b"/>
+        </mask>
+        <circle id="c" cx="19" cy="19" r="19"/>
+        <mask id="g" width="40" height="40" x="-1" y="-1">
+            <path fill="#fff" d="M-1-1h40v40H-1z"/>
+            <use xlink:href="#c"/>
+        </mask>
+        <circle id="d" cx="19" cy="19" r="19"/>
+        <mask id="h" width="40" height="40" x="-1" y="-1">
+            <path fill="#fff" d="M-1-1h40v40H-1z"/>
+            <use xlink:href="#d"/>
+        </mask>
+    </defs>
+    <g fill="none" fill-rule="evenodd" transform="translate(1 1)">
+        <circle cx="315.5" cy="315.5" r="315.5" stroke="#C8C8C8" stroke-dasharray="6"/>
+        <g transform="translate(39 115)">
+            <use fill="#FFF" stroke="#C8C8C8" stroke-dasharray="6" stroke-width="2" mask="url(#e)" xlink:href="#a"/>
+            <circle cx="19" cy="19" r="8" fill="#D8D8D8"/>
+        </g>
+        <g transform="translate(39 478)">
+            <use fill="#FFF" stroke="#C8C8C8" stroke-dasharray="6" stroke-width="2" mask="url(#f)" xlink:href="#b"/>
+            <circle cx="19" cy="19" r="8" fill="#D8D8D8"/>
+        </g>
+        <g transform="translate(551 115)">
+            <use fill="#FFF" stroke="#C8C8C8" stroke-dasharray="6" stroke-width="2" mask="url(#g)" xlink:href="#c"/>
+            <circle cx="19" cy="19" r="8" fill="#D8D8D8"/>
+        </g>
+        <g transform="translate(551 478)">
+            <use fill="#FFF" stroke="#C8C8C8" stroke-dasharray="6" stroke-width="2" mask="url(#h)" xlink:href="#d"/>
+            <circle cx="19" cy="19" r="8" fill="#D8D8D8"/>
+        </g>
+    </g>
+</svg>
