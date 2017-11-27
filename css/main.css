@@ -838,18 +838,18 @@ header.scroll .header__calk_but {
 	margin: 0 auto;
 	padding: 0;
 }
-.tab-1__calculator_first-form .area {
+.tab-1__calculator_table .area {
 	float: left;
 	margin-right: 90px;
 }
-.tab-1__calculator_first-form .area .input {
+.tab-1__calculator_table .area .input {
 	width: 260px;
 	height: 77px;
 	position: relative;
 	background-color: #ffffff;
 	border: solid 1px #c8c8c8;
 }
-.tab-1__calculator_first-form .area .input input {
+.tab-1__calculator_table .area .input input {
 	width: 180px;
 	height: 75px;
 	object-fit: contain;
@@ -859,7 +859,7 @@ header.scroll .header__calk_but {
 	color: #000000;
 	padding: 0 25px;	
 }
-.tab-1__calculator_first-form .area .input i {
+.tab-1__calculator_table .area .input i {
 	display: block;
     width: 79px;
     height: 38px;
@@ -869,14 +869,14 @@ header.scroll .header__calk_but {
     right: 0;
     cursor: pointer;
 }
-.tab-1__calculator_first-form .area .input i.plus {
+.tab-1__calculator_table .area .input i.plus {
     top: 0;
 }
-.tab-1__calculator_first-form .area .input i.minus {
+.tab-1__calculator_table .area .input i.minus {
     bottom: 0;
     border-bottom: none;
 }
-.tab-1__calculator_first-form .area .input i.plus::after {
+.tab-1__calculator_table .area .input i.plus::after {
     content: "";
     display: block;
     width: 0;
@@ -890,7 +890,7 @@ header.scroll .header__calk_but {
     margin-top: -4px;
     transform: rotate(180deg);
 }
-.tab-1__calculator_first-form .area .input i.minus::after {
+.tab-1__calculator_table .area .input i.minus::after {
     content: "";
     display: block;
     width: 0;
@@ -903,15 +903,15 @@ header.scroll .header__calk_but {
     top: 50%;
     margin-top: -4px;
 }
-.tab-1__calculator_first-form .layers {
+.tab-1__calculator_table .layers {
 	float: left;	
 }
-.tab-1__calculator_first-form .layers .layers-selector {
+.tab-1__calculator_table .layers .layers-selector {
 	list-style: none;
 	margin: 0;
 	padding: 0;
 }
-.tab-1__calculator_first-form .layers .layers-selector li {
+.tab-1__calculator_table .layers .layers-selector li {
 	width: 79px;
 	height: 77px;
 	float: left;
@@ -922,7 +922,7 @@ header.scroll .header__calk_but {
 	text-align: center;
 	cursor: pointer;
 }
-.tab-1__calculator_first-form .layers .layers-selector li.current {	
+.tab-1__calculator_table .layers .layers-selector li.current {	
 	object-fit: contain;
 	background-color: #00bffb;
 	border: solid 1px #c8c8c8;
@@ -931,8 +931,8 @@ header.scroll .header__calk_but {
 	color: #fff;
 	cursor: default;
 }
-.tab-1__calculator_first-form .area label,
-.tab-1__calculator_first-form .layers label {	
+.tab-1__calculator_table  label,
+.tab-1__calculator_table  label {	
 	font: 24px/28px 'PT Sans Narrow';	
 	color: #000000;
 	text-align: center;
@@ -941,8 +941,7 @@ header.scroll .header__calk_but {
 	vertical-align: middle;
 	margin-bottom: 10px;
 }
-.tab-1__calculator_first-form .area label span,
-.tab-1__calculator_first-form .layers label span {
+.tab-1__calculator_table label span {
 	vertical-align: middle;
 	margin-right: 15px;
 }
@@ -975,4 +974,151 @@ header.scroll .header__calk_but {
 .tab-1__calculator_second {
 	width: 50%;
 	float: left;
+}
+.tab-1__calculator_second-form {
+    list-style: none;
+    margin: 0 auto;  
+    padding: 0; 
+    display: table; 
+}
+.tab-1__calculator_table .volume {
+    padding-left: 100px;
+    margin-left: 69px;
+    background: url('../img/calc-icon.svg') no-repeat left bottom / 59px 77px;
+    float:  left;
+    position: relative;
+}
+.tab-1__calculator_table .volume::before {
+    content: "";
+    display: block;
+    width: 21px;
+    height: 3px;
+    position: absolute;
+    left: 70px;
+    top: 69px;
+    background-color: #000;
+}
+.tab-1__calculator_table .volume::after {
+    content: "";
+    display: block;
+    width: 21px;
+    height: 3px;
+    position: absolute;
+    left: 70px;
+    top: 79px;
+    background-color: #000;
+}
+.tab-1__calculator_second-form .input {
+    width: 224px;
+    height: 77px;
+    position: relative;
+    background-color: #ffffff;
+    border: solid 1px #c8c8c8;
+}
+.tab-1__calculator_second-form .input input {
+    width: 100%;
+    height: 75px;
+    object-fit: contain;
+    background-color: #ffffff;
+    border: none;
+    font: 36px/75px 'PT Sans Narrow';
+    color: #000000;
+    padding: 0 25px;
+    text-align: center; 
+}
+.tab-1__calculator_second-total {
+    list-style: none;
+    margin: 83px auto 0 auto;
+    padding: 0;
+    display: table;
+}
+.tab-1__calculator_second-total .choice {
+    float: left;
+    margin-right: 160px;
+}
+.tab-1__calculator_second-total .offer {
+    float: left;    
+}
+.tab-1__calculator_second-total label {
+    margin-left: 0;
+    text-align: left;
+    margin-bottom: 23px;
+}
+.choice-volume {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: table;
+}
+.choice-volume > li {
+    padding-top: 101px;
+    position: relative;
+    float: left;
+    margin-right: 25px;
+}
+.choice-volume > li:last-child {
+    margin: 0;
+}
+.choice-volume > li .choice-volume_value {
+    width: 54px;
+    height: 81px;
+    background: url('../img/paint-2.svg') no-repeat center / cover;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -27px;
+    font: 24px/1 'PT Sans Narrow';
+    color: #000;
+    text-align: center;
+    padding-top: 43px;
+}
+.choice-volume > li .input {
+    width: 79px;
+    height: 77px;
+    position: relative;
+    background-color: #ffffff;
+    border: solid 1px #c8c8c8;
+}
+.choice-volume > li .input input {
+    width: 100%;
+    height: 75px;
+    object-fit: contain;
+    background-color: #ffffff;
+    border: none;
+    font: 36px/75px 'PT Sans Narrow';
+    color: #00bffb;
+    text-align: center;
+
+}
+.tab-1__calculator_second-total .offer .total_value {
+    padding-top: 101px;
+    position: relative;    
+}
+.tab-1__calculator_second-total .offer .total_value .summ {
+    position: absolute;
+    top: -12px;
+    left: 0;
+}
+.tab-1__calculator_second-total .offer .total_value .summ b {
+    display: block;        
+    font: bold 72px/1 'PT Sans Narrow';
+    color: #00bffb;
+    white-space: nowrap;
+}
+.tab-1__calculator_second-total .offer .total_value .summ span {
+    display: block;        
+    font: 24px/21px 'PT Sans Narrow';
+    color: #000;
+    white-space: nowrap;
+}
+.tab-1__calculator_second-total .offer .total_value .buy-button {
+    width: 351px;
+    height: 77px;
+    object-fit: contain;
+    background-color: #d0021b;
+    font: 24px/77px 'PT Sans Narrow';
+    text-align: center;
+    color: #ffffff;
+    display: block;
+    text-decoration: none;
 }
