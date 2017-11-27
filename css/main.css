@@ -9,6 +9,9 @@
 /* ==========================================================================
    Base styles: opinionated defaults
    ========================================================================== */
+* {
+	box-sizing: border-box;
+}
 
 html {
     color: #222;
@@ -192,6 +195,50 @@ textarea {
     border-radius: 0 5px 5px 0;
 }
 
+
+.tooltip {
+	width: 28px;
+	height: 28px;
+	display: inline-block;
+	background: url('../img/i.svg') no-repeat center / cover;
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+}
+.tooltip .tooltip__descr {
+	width: 280px;	
+	background-color: #fff;
+	padding: 34px 24px 24px 24px;
+	position: absolute;
+	left: -59px;
+	top: 50px;
+	box-shadow: 0 16px 24px 0 rgba(30, 31, 36, 0.1), 0 0 1px 0 rgba(0, 0, 0, 0.2);
+	font: 16px/20px 'PT Sans Narrow';	
+	letter-spacing: 0px;	
+	color: #000000;
+	text-align: left;
+	display: none;
+}
+.tooltip .tooltip__descr::before {
+	content: "";
+	display: block;
+	width: 40px;
+	height: 20px;
+	background: url('../img/bg-tooltip.png') no-repeat center / cover;
+    position: absolute;
+    left: 54px;
+    top: -20px;    
+}
+.tooltip .tooltip__descr .tooltip__close {
+	width: 13px;
+	height: 13px;
+	background: url('../img/tooltip-close.svg') no-repeat center / cover;
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	cursor: pointer;
+}
+
 /* ==========================================================================
    Header classes
    ========================================================================== */
@@ -231,6 +278,9 @@ header .wrapper {
     font: 24px/1 'PT Sans Narrow';
     padding: 0 13px;
     position: relative;
+}
+.header__langs li.current a {
+	color: #000;
 }
 .header__langs li:last-child {
     padding-right: 0;
@@ -292,11 +342,11 @@ header.scroll .header__calk_but {
 .top__slider_list li {
 
 }
-.top__slider .slick-prev {    
+.top__slider .slick-prev {
     width: 32px;
     height: 60px;
     display: block;
-    background: url('../img/arrow-left.svg') no-repeat center / 32px 60px;
+    background: url('../img/top-slider-arrow.svg') no-repeat center / 32px 60px;
     font-size: 0;
     position: absolute;
     left: 11.5vw;
@@ -306,13 +356,15 @@ header.scroll .header__calk_but {
     z-index: 1;
     border: none;
     outline: none;
+    transform: rotate(180deg);
+    transition: all 250ms ease;
 
 }
 .top__slider .slick-next {
     width: 32px;
     height: 60px;
     display: block;
-    background: url('../img/arrow-right.svg') no-repeat center / 32px 60px;
+    background: url('../img/top-slider-arrow.svg') no-repeat center / 32px 60px;
     font-size: 0;
     position: absolute;
     right: 11.5vw;
@@ -322,6 +374,15 @@ header.scroll .header__calk_but {
     z-index: 1;
     border: none;
     outline: none;
+    transition: all 250ms ease;
+}
+.top__slider .slick-prev:hover,
+.top__slider .slick-next:hover {
+	background-image: url('../img/top-slider-arrow-hover.svg');
+}
+.top__slider .slick-prev:active,
+.top__slider .slick-next:active {
+	background-image: url('../img/top-slider-arrow-active.svg');
 }
 .top__slider_dotted {
     list-style: none;
@@ -463,9 +524,16 @@ header.scroll .header__calk_but {
     color: #000000;
     cursor: pointer;
     position: relative;
+    transition: color 150ms ease;
+}
+.main__tabs_list li:hover {
+	color: #00bffb;
 }
 .main__tabs_list li.current {
     background-color: #fff;
+}
+.main__tabs_list li.current:hover {
+	color: #000000;
 }
 .main__tabs_list li.current::after {
     content: "";
@@ -679,7 +747,7 @@ header.scroll .header__calk_but {
     bottom: -41px;
 }
 .tab-1__advantage-num {
-    font: bold 288px/1 'PT Sans Narrow';            
+    font: bold 288px/1 'PT Sans Narrow';
     color: #f5f5f5;
     position: absolute;
 }
@@ -698,4 +766,213 @@ header.scroll .header__calk_but {
 .tab-1__advantage_table .rtw-slider {
     width: 245px;
     margin-top: 36px;
+}
+
+/* ==========================================================================
+   MAIN TAB-1 CALCULATOR classes
+   ========================================================================== */
+.tab-1__calculator {
+	margin-top: 280px;
+	height: 835px;
+	background-color: #f5f5f5;
+	padding-top: 142px;
+	position: relative;
+	overflow: hidden; 
+}
+.tab-1__calculator::before {
+	content: "";
+	display: block;
+	width: 453px;
+	height: 530px;
+	background: url('../img/calc.svg') no-repeat center / cover;
+	position: absolute;
+	left: -125px;
+	bottom: 0;
+}
+.tab-1__calculator::after {
+	content: "";
+	display: block;
+	width: 362px;
+	height: 455px;
+	background: url('../img/paint.svg') no-repeat center / cover;
+	position: absolute;
+	right: -120px;
+	top: -53px;
+}
+.tab-1__calculator h2 {
+    padding: 0;
+    margin: 0 auto 80px auto;
+    font: bold 45px/1 'PT Sans Narrow';
+    text-align: center;
+    color: #000000;
+    position: relative;
+    display: table;    
+}
+.tab-1__calculator h2 span {
+    position: relative;
+    z-index: 1;
+}
+.tab-1__calculator h2 b {
+    font: bold 120px/1 'PT Sans Narrow';
+    text-transform: uppercase;
+    color: #fff;
+    display: block;
+    position: absolute;
+    left: 0px;
+    bottom: -10px;
+}
+.tab-1__calculator_table {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	width: 200%;
+}
+.tab-1__calculator_first {
+	width: 50%;
+	float: left;
+}
+.tab-1__calculator_first-form {
+	display: table;
+	margin: auto;
+	list-style: none;
+	margin: 0 auto;
+	padding: 0;
+}
+.tab-1__calculator_first-form .area {
+	float: left;
+	margin-right: 90px;
+}
+.tab-1__calculator_first-form .area .input {
+	width: 260px;
+	height: 77px;
+	position: relative;
+	background-color: #ffffff;
+	border: solid 1px #c8c8c8;
+}
+.tab-1__calculator_first-form .area .input input {
+	width: 180px;
+	height: 75px;
+	object-fit: contain;
+	background-color: #ffffff;
+	border: none;	
+	font: 36px/75px 'PT Sans Narrow';		
+	color: #000000;
+	padding: 0 25px;	
+}
+.tab-1__calculator_first-form .area .input i {
+	display: block;
+    width: 79px;
+    height: 38px;
+    box-sizing: border-box;
+    border-left: solid 1px #c8c8c8;
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+}
+.tab-1__calculator_first-form .area .input i.plus {
+    top: 0;
+}
+.tab-1__calculator_first-form .area .input i.minus {
+    bottom: 0;
+    border-bottom: none;
+}
+.tab-1__calculator_first-form .area .input i.plus::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 10px solid #c8c8c8;
+    position: absolute;
+    left: 31px;
+    top: 50%;
+    margin-top: -4px;
+    transform: rotate(180deg);
+}
+.tab-1__calculator_first-form .area .input i.minus::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 10px solid #c8c8c8;
+    position: absolute;
+    left: 31px;
+    top: 50%;
+    margin-top: -4px;
+}
+.tab-1__calculator_first-form .layers {
+	float: left;	
+}
+.tab-1__calculator_first-form .layers .layers-selector {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.tab-1__calculator_first-form .layers .layers-selector li {
+	width: 79px;
+	height: 77px;
+	float: left;
+	background-color: #ffffff;
+	border: solid 1px #c8c8c8;
+	font: 36px/77px 'PT Sans Narrow';
+	color: #000000;
+	text-align: center;
+	cursor: pointer;
+}
+.tab-1__calculator_first-form .layers .layers-selector li.current {	
+	object-fit: contain;
+	background-color: #00bffb;
+	border: solid 1px #c8c8c8;
+	border-left: none;
+	border-right: none;
+	color: #fff;
+	cursor: default;
+}
+.tab-1__calculator_first-form .area label,
+.tab-1__calculator_first-form .layers label {	
+	font: 24px/28px 'PT Sans Narrow';	
+	color: #000000;
+	text-align: center;
+	display: block;
+	height: 28px;
+	vertical-align: middle;
+	margin-bottom: 10px;
+}
+.tab-1__calculator_first-form .area label span,
+.tab-1__calculator_first-form .layers label span {
+	vertical-align: middle;
+	margin-right: 15px;
+}
+.tab-1__calculator_first-form-descr {
+	width: 400px;
+	font: 24px/28px 'PT Sans Narrow';
+	text-align: center;
+	color: #00bffb;
+	margin: 82px auto 0 auto;
+}
+.tab-1__calculator_first-form-button {
+	width: 351px;
+	height: 77px;
+	object-fit: contain;
+	background-color: #00bffb;
+	font: bold 24px/77px 'PT Sans Narrow';	
+	text-align: center;
+	color: #ffffff;
+	margin: 63px auto 0 auto;
+	cursor: pointer;
+	transition: all 250ms ease;
+}
+.tab-1__calculator_first-form-button:hover {
+	background-color: #45cdf8;
+}
+.tab-1__calculator_first-form-button:active {
+	background-color: #00bffb;
+	box-shadow: 0 2px 1px 0 rgba(7, 50, 64, 0.5);
+}
+.tab-1__calculator_second {
+	width: 50%;
+	float: left;
 }
