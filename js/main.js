@@ -2,6 +2,10 @@ $('.top__slider_list').slick({
 	dots : true,
 	appendDots : $('.top__slider_list-dots')
 });
+$('.bottom__slider_list').slick({
+	dots : true,
+	appendDots : $('.bottom__slider_list-dots')
+});
 
 /*
 var vf = 0;
