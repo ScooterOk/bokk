@@ -1360,6 +1360,50 @@ header.scroll .header__calk_but {
 }
 
 /* ==========================================================================
+   MAIN TAB-2 CALCULATOR classes
+   ========================================================================== */
+.main__tab-2_info {
+    margin-top: 205px;
+}
+.main__tab-2_info h2 {
+    padding: 0;
+    margin: 0;
+    font: bold 45px/1 'PT Sans Narrow';    
+    color: #000000;
+    position: relative;
+}
+.main__tab-2_info h2::after {
+    content: "";
+    display: block;
+    width: 64px;
+    height: 8px;
+    object-fit: contain;
+    background-color: #00bffb;
+    position: absolute;
+    left: 0;
+    bottom: -41px;
+}
+.main__tab-2_info h2 span {
+    position: relative;
+    z-index: 1;
+}
+.main__tab-2_info h2 b {
+    font: bold 120px/1 'PT Sans Narrow';
+    text-transform: uppercase;
+    color: #f5f5f5;
+    display: block;
+    position: absolute;
+    left: 0px;
+    bottom: -10px;
+}
+.main__tab-2_info_text {
+    margin: 71px 0 0 0;    
+    width: 1111px;
+    font: 20px/26px 'PT Sans Narrow';    
+    color: #000000;   
+}
+
+/* ==========================================================================
    FOOTER classes
    ========================================================================== */
 footer {
@@ -1425,3 +1469,4 @@ footer h2 b {
     background: url('../img/tel.svg') no-repeat left center / 22px 36px;
     margin-top: 17px;
 }
+
