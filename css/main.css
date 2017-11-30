@@ -204,6 +204,7 @@ textarea {
 	position: relative;
 	display: inline-block;
 	vertical-align: middle;
+	cursor: pointer;
 }
 .tooltip .tooltip__descr {
 	width: 280px;	
@@ -446,14 +447,13 @@ header.scroll .header__calk_but {
 }
 .main__tabs_roller-valik {
     content: "";
-    background: url('../img/valik-sprite.png') no-repeat center / auto 268px;
+    background: url('../img/valik-sprite.png') no-repeat 0 0 / auto 268px;
     display: block;
     width: 273px;
     height: 268px;
     position: absolute;
     top: -33px;
-    right: -245px;
-    background-image: 
+    right: -245px;    
 }
 .main__tabs .wrapper {
     position: relative;
@@ -1362,8 +1362,11 @@ header.scroll .header__calk_but {
 /* ==========================================================================
    MAIN TAB-2 CALCULATOR classes
    ========================================================================== */
+.main__tab-2 {
+   	padding-top: 247px;
+   }
 .main__tab-2_info {
-    margin-top: 205px;
+    margin-bottom: 242px;
 }
 .main__tab-2_info h2 {
     padding: 0;
@@ -1400,7 +1403,61 @@ header.scroll .header__calk_but {
     margin: 71px 0 0 0;    
     width: 1111px;
     font: 20px/26px 'PT Sans Narrow';    
-    color: #000000;   
+    color: #646464;
+}
+.main__tab-2_table-wrapper {
+	padding: 0 63px;
+	margin-top: -85px;
+}
+.main__tab-2_table {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: table;
+	width: 100%;
+	font: 20px/26px 'PT Sans Narrow';    	
+	color: #646464;
+}
+.main__tab-2_table > li {
+	display: table-row;
+}
+.main__tab-2_table > li:nth-child(odd){
+	background-color: #f5f5f5;
+}
+.main__tab-2_table > li .left {
+	display: table-cell;
+	width: 50%;
+	padding: 37px 41px;
+	vertical-align: middle;
+}
+.main__tab-2_table > li .right {
+	display: table-cell;
+	width: 50%;
+	padding: 37px 41px;
+	vertical-align: middle;
+	color: #000000;
+}
+.main__tab-2_table > li .right a {
+	display: inline-block;
+	color: #00bffb;
+	text-decoration: none;
+	margin-left: 10px;
+}
+.main__tab-2_table > li .tooltip {
+	margin-left: 15px;
+}
+.main__tab-2_pdf-links {
+	list-style: none;
+	margin: 135px auto 0 auto;
+	padding: 0;
+	display: table;
+}
+.main__tab-2_pdf-links .pdf-link {
+	float: left;
+	margin: 0 82px 0 0;
+}
+.main__tab-2_pdf-links .pdf-link:last-child {
+	margin: 0;
 }
 
 /* ==========================================================================
