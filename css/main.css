@@ -28,6 +28,9 @@ html, body {
 body {
     overflow-x: hidden;
 }
+html.hidden, .hidden body {
+	overflow: hidden;	
+}
 
 /*
  * Remove text-shadow in selection highlight:
@@ -245,13 +248,20 @@ textarea {
 /* ==========================================================================
    Start styles
    ========================================================================== */
-.top__slider,
-main,
-footer,
 .header__logo,
+.top__slider,
+footer,
 .header__langs,
 .top__slider .slick-prev,
-.top__slider .slick-next {
+.top__slider .slick-next,
+.main__tabs_roller,
+.main__tabs_ava,
+.main__tabs_title,
+.main__tabs_calc,
+.main__tabs_list,
+.tab-1__use-left,
+.tab-1__use-right
+ {
     opacity: 0;
 }
 
@@ -331,8 +341,7 @@ header .wrapper {
     cursor: pointer;
     float: right;
     overflow: hidden;
-    margin: 28px 0 0 0;
-    transition: all 300ms ease;    
+    margin: 28px 0 0 0;    
 }
 .header__calk_but:hover {
     background-color: #e2344a;    
@@ -1379,6 +1388,7 @@ header.scroll .header__calk_but {
    ========================================================================== */
 .main__tab-2 {
    	padding-top: 247px;
+   	display: none;
    }
 .main__tab-2_info {
     margin-bottom: 242px;
