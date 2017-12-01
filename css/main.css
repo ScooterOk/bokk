@@ -260,7 +260,8 @@ footer,
 .main__tabs_calc,
 .main__tabs_list,
 .tab-1__use-left,
-.tab-1__use-right
+.tab-1__use-right,
+.tab-1__photo
  {
     opacity: 0;
 }
@@ -604,6 +605,7 @@ header.scroll .header__calk_but {
 .tab-1__use-left h2 span {
     position: relative;
     z-index: 1;
+    display: inline-block;
 }
 .tab-1__use-left h2 b {    
     font: bold 120px/1 'PT Sans Narrow';
@@ -650,10 +652,17 @@ header.scroll .header__calk_but {
 .tab-1__photo {
     width: 631px;
     height: 631px;
-    margin: 145px auto 0 auto;
-    background: url('../img/circle.svg') no-repeat center / cover;
+    margin: 145px auto 0 auto;    
     text-align: center;
     position: relative;
+}
+.tab-1__photo_circle {
+	width: 631px;
+    height: 631px;
+    background: url('../img/circle.svg') no-repeat center / cover;
+    position: absolute;
+    top: 0;
+    left : 0;
 }
 .tab-1__photo img {
     width: 556px;
