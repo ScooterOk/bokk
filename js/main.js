@@ -11,7 +11,15 @@
 			animDone : {
 				mainTabs : false,
 				tab1Use : false,
-				tab1Photo : false
+				tab1Photo : false,
+				tab1AdvantageTitle : false,
+				tab1AdvantageTable1 : false,
+				tab1AdvantageTable2 : false,
+				tab1AdvantageTable3 : false,
+				tab1Recommen1 : false,
+				tab1Recommen2 : false,
+				tab1ExpertsTitle : false,
+				footer : false
 			}
 		},
 		init : function(){						
@@ -44,19 +52,22 @@
 				});
 				TweenMax.set('.header__langs', {x:app.computed.langsMiddle().x, y:app.computed.langsMiddle().y});
 				TweenMax.set('.header__logo', {x:app.computed.logoMiddle().x, y:app.computed.logoMiddle().y, scale : 0, opacity : 1});
-				TweenMax.to('.header__logo', 0.6, {scale : 1, ease: Back.easeOut.config(2)});
-				TweenMax.to('.header__logo', 0.7, {x : 0, ease: Power3.easeInOut, delay : 0.6, onComplete : function(){
+				TweenMax.set('#header__logo_img .st0, #header__logo_img .st1, #header__logo_img .st2, #header__logo_img .st3', {opacity : 0});
+				TweenMax.to('.header__logo', 0.4, {scale : 1, ease: Back.easeOut.config(2), onComplete : function(){					
+					TweenMax.staggerFromTo(['#header__logo_img .st0', ' #header__logo_img .st1', '#header__logo_img .st2', '#header__logo_img .st3'], 0.3, {x : 100, y : -100, opacity : 0}, {x : 0, y : 0, opacity : 1, ease: Power2.easeInOut}, 0.15);
+				}});				
+				TweenMax.to('.header__logo', 0.7, {x : 0, ease: Power3.easeInOut, delay : 1.2, onComplete : function(){
 					TweenMax.to('.header__logo', 0.5, {y : 0, ease: Power3.easeInOut});
-				}});
-				TweenMax.to('.header__langs', 0.7, {x : 0, opacity : 1, ease: Power3.easeInOut, delay : 0.6, onComplete : function(){
-					TweenMax.to('.header__langs', 0.5, {y : 0, ease: Power3.easeInOut});
+				}});				
+				TweenMax.to('.header__langs', 0.7, {x : 0, opacity : 1, ease: Power3.easeInOut, delay : 1.2, onComplete : function(){
+					TweenMax.to('.header__langs', 0.5, {y : 0, ease: Power3.easeInOut});					
 					TweenMax.fromTo('.top__slider', 0.4, {opacity : 0, y : '100%'}, {opacity : 1, y : '0%', ease: Power2.easeInOut, delay : 0.5, onComplete : function(){
 						$('body').off('mousewheel');
 						if(app.computed.mainTabsShow()){
 							app.animation.mainTabs();
 						}
 					}});
-					TweenMax.fromTo('.top__slider .slick-prev, .top__slider .slick-next', 0.4, {opacity : 0}, {opacity : 1, delay : 0.6});
+					TweenMax.fromTo('.top__slider .slick-prev, .top__slider .slick-next', 0.4, {opacity : 0}, {opacity : 1, delay : 0.6});					
 				}});
 			},
 			mainTabs : function(){
@@ -78,29 +89,108 @@
 				TweenMax.fromTo('.tab-1__descr', 1.5, {opacity : 0, y : 50}, {opacity : 1, y : 0, delay : 0});
 				TweenMax.fromTo('.tab-1__use-right', 2, {opacity : 0, y : -70}, {opacity : 1, y : 0});
 			},
-			tab1Photo : function(){				
+			tab1Photo : function(){
 				TweenMax.set('.tab-1__photo img, .tab-1__photo_circle', {opacity : 0});
 				TweenMax.set('.tab-1__photo_wings', {scale : 0});
 				TweenMax.set('.tab-1__photo', {opacity : 1});				
 				TweenMax.to('.tab-1__photo img', 2, {opacity : 1});
 				TweenMax.fromTo('.tab-1__photo_circle', 1, {opacity : 0, rotation : -360}, {opacity : 1, rotation : 0, delay : 0.3});
-				TweenMax.staggerTo(['.tab-1__photo_wings.country', '.tab-1__photo_wings.honors', '.tab-1__photo_wings.history', '.tab-1__photo_wings.iso'], 0.3, {scale : 1, delay : 1, ease: Back.easeOut.config(1.8)}, 0.3);
+				TweenMax.staggerTo(['.tab-1__photo_wings.country', '.tab-1__photo_wings.honors', '.tab-1__photo_wings.history', '.tab-1__photo_wings.iso'], 0.2, {scale : 1, delay : 1, ease: Back.easeOut.config(1.8)}, 0.25);
 				
+			},
+			tab1AdvantageTitle : function(){				
+				TweenMax.set('.tab-1__advantage_table', {opacity : 0});
+				TweenMax.set('.tab-1__advantage', {opacity : 1});
+				TweenMax.fromTo('.tab-1__advantage h2 span', 1.5, {opacity : 0, y : -25}, {opacity : 1, y : 0});
+				TweenMax.fromTo('.tab-1__advantage h2 b', 1.5, {opacity : 0, y : 50}, {opacity : 1, y : 0});
+				
+			},
+			tab1AdvantageTable1 : function(){
+				TweenMax.set($('.tab-1__advantage_table.uno'), {opacity : 1});
+				TweenMax.fromTo('.tab-1__advantage_table.uno .left', 1.5, {opacity : 0, y : 100}, {opacity : 1, y : 0});
+				TweenMax.fromTo('.tab-1__advantage_table.uno .right', 1.5, {opacity : 0, x : -100}, {opacity : 1, x : 0});
+			},
+			tab1AdvantageTable2 : function(){
+				TweenMax.set($('.tab-1__advantage_table.dos'), {opacity : 1});
+				TweenMax.fromTo('.tab-1__advantage_table.dos .right', 1.5, {opacity : 0, y : 100}, {opacity : 1, y : 0});
+				TweenMax.fromTo('.tab-1__advantage_table.dos .left', 1.5, {opacity : 0, x : 100}, {opacity : 1, x : 0});
+			},
+			tab1AdvantageTable3 : function(){
+				TweenMax.set($('.tab-1__advantage_table.tres'), {opacity : 1});
+				TweenMax.fromTo('.tab-1__advantage_table.tres .left', 1.5, {opacity : 0, y : 100}, {opacity : 1, y : 0});
+				TweenMax.fromTo('.tab-1__advantage_table.tres .right', 1.5, {opacity : 0, x : -100}, {opacity : 1, x : 0});
+			},
+			tab1Recommen1 : function(){
+				TweenMax.set($('.tab-1__recommen_table'), {opacity : 0});
+				TweenMax.set($('.tab-1__recommen, .tab-1__recommen_table.uno'), {opacity : 1});				
+				TweenMax.fromTo('.tab-1__recommen_table.uno h2 span', 1.5, {opacity : 0, x : -100}, {opacity : 1, x : 0});
+				TweenMax.fromTo('.tab-1__recommen_table.uno h2 b', 1.5, {opacity : 0, x : 100}, {opacity : 1, x : 0});				
+				TweenMax.fromTo('.tab-1__recommen_table.uno .right', 2, {opacity : 0, y : -70}, {opacity : 1, y : 0});
+			},
+			tab1Recommen2 : function(){								
+				TweenMax.set($('.tab-1__recommen_table.dos'), {opacity : 1});				
+				TweenMax.fromTo('.tab-1__recommen_table.dos h2 span', 1.5, {opacity : 0, x : 100}, {opacity : 1, x : 0});
+				TweenMax.fromTo('.tab-1__recommen_table.dos h2 b', 1.5, {opacity : 0, x : -100}, {opacity : 1, x : 0});				
+				TweenMax.fromTo('.tab-1__recommen_table.dos .pdf-link', 1.5, {opacity : 0, y : 50}, {opacity : 1, y : 0, delay : 0});
+				TweenMax.fromTo('.tab-1__recommen_table.dos .right', 2, {opacity : 0, y : 70}, {opacity : 1, y : 0});
+			},
+			tab1ExpertsTitle : function(){
+				TweenMax.set('.tab-1__experts .wrapper > h2', {opacity : 1});
+				TweenMax.fromTo('.tab-1__experts .wrapper > h2 span', 1.5, {opacity : 0, y : -25}, {opacity : 1, y : 0});
+				TweenMax.fromTo('.tab-1__experts .wrapper > h2 b', 1.5, {opacity : 0, y : 50}, {opacity : 1, y : 0});
+			},
+			footer : function(){
+				TweenMax.set('footer h2, .footer__text', {opacity : 1});
+				TweenMax.fromTo('footer h2 span', 1.5, {opacity : 0, x : -100}, {opacity : 1, x : 0});
+				TweenMax.fromTo('footer h2 b', 1.5, {opacity : 0, x : 100}, {opacity : 1, x : 0});
+				TweenMax.fromTo('.footer__text', 1.5, {opacity : 0, y : 50}, {opacity : 1, y : 0, delay : 0});
 			}
 		},
-		scroller : function(){
-			var st = $(window).scrollTop();			
-			if(st > ($('.main__tabs').offset().top - ($(window).height() / 1.5)) && !app.data.animDone.mainTabs && !app.computed.mainTabsShow()){
+		scroller : function(){			
+			var st = $(window).scrollTop();						
+			if(st > ($('.main__tabs').offset().top - ($(window).height() / 1.3)) && !app.data.animDone.mainTabs && !app.computed.mainTabsShow()){
 				app.data.animDone.mainTabs = true;
 				app.animation.mainTabs();
-			}
-			if(st > ($('.tab-1__use').offset().top - ($(window).height() / 2.5)) && !app.data.animDone.tab1Use){
+			}			
+			if(st > ($('.tab-1__use').offset().top - ($(window).height() - ($(window).height() / 4.5))) && !app.data.animDone.tab1Use){
 				app.data.animDone.tab1Use = true;
 				app.animation.tab1Use();	
 			}
-			if(st > ($('.tab-1__photo').offset().top - ($(window).height() / 2.3)) && !app.data.animDone.tab1Photo){
+			if(st > ($('.tab-1__photo').offset().top - ($(window).height() - ($(window).height() / 4.5))) && !app.data.animDone.tab1Photo){
 				app.data.animDone.tab1Photo = true;
 				app.animation.tab1Photo();
+			}
+			if(st > ($('.tab-1__advantage > h2').offset().top - ($(window).height() - ($(window).height() / 4.5))) && !app.data.animDone.tab1AdvantageTitle){
+				app.data.animDone.tab1AdvantageTitle = true;
+				app.animation.tab1AdvantageTitle();
+			}
+			if(st > ($('.tab-1__advantage_table.uno').offset().top - ($(window).height() - ($(window).height() / 4.5))) && !app.data.animDone.tab1AdvantageTable1){
+				app.data.animDone.tab1AdvantageTable1 = true;
+				app.animation.tab1AdvantageTable1();
+			}
+			if(st > ($('.tab-1__advantage_table.dos').offset().top - ($(window).height() - ($(window).height() / 4.5))) && !app.data.animDone.tab1AdvantageTable2){
+				app.data.animDone.tab1AdvantageTable2 = true;
+				app.animation.tab1AdvantageTable2();
+			}
+			if(st > ($('.tab-1__advantage_table.tres').offset().top - ($(window).height() - ($(window).height() / 4.5))) && !app.data.animDone.tab1AdvantageTable3){
+				app.data.animDone.tab1AdvantageTable3 = true;
+				app.animation.tab1AdvantageTable3();
+			}
+			if(st > ($('.tab-1__recommen_table.uno').offset().top - ($(window).height() - ($(window).height() / 4.5))) && !app.data.animDone.tab1Recommen1){
+				app.data.animDone.tab1Recommen1 = true;
+				app.animation.tab1Recommen1();
+			}
+			if(st > ($('.tab-1__recommen_table.dos').offset().top - ($(window).height() - ($(window).height() / 4.5))) && !app.data.animDone.tab1Recommen2){
+				app.data.animDone.tab1Recommen2 = true;
+				app.animation.tab1Recommen2();
+			}
+			if(st > ($('.tab-1__experts .wrapper > h2').offset().top - ($(window).height() - ($(window).height() / 4.5))) && !app.data.animDone.tab1ExpertsTitle){
+				app.data.animDone.tab1ExpertsTitle = true;
+				app.animation.tab1ExpertsTitle();
+			}
+			if(st > ($('footer').offset().top - ($(window).height() - ($(window).height() / 4.5))) && !app.data.animDone.footer){
+				app.data.animDone.footer = true;
+				app.animation.footer();
 			}
 
 		},
@@ -127,8 +217,8 @@
 				x = (ww / 2) - (w / 2);
 				y = (wh / 2) - (h / 2) ;				
 				return {
-					x : -(x - $('.header__logo').offset().left),
-					y : (y - $('.header__logo').offset().top - (Number($('.header__langs').css('marginTop').split('px')[0]) / 2))
+					x : (x - $('.header__langs').offset().left),
+					y : (y - $('.header__langs').offset().top)
 				};
 			},
 			mainTabsShow : function(){

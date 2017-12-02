@@ -250,7 +250,6 @@ textarea {
    ========================================================================== */
 .header__logo,
 .top__slider,
-footer,
 .header__langs,
 .top__slider .slick-prev,
 .top__slider .slick-next,
@@ -261,7 +260,12 @@ footer,
 .main__tabs_list,
 .tab-1__use-left,
 .tab-1__use-right,
-.tab-1__photo
+.tab-1__photo,
+.tab-1__advantage,
+.tab-1__recommen,
+.tab-1__experts .wrapper > h2,
+footer h2,
+.footer__text
  {
     opacity: 0;
 }
@@ -277,22 +281,24 @@ header {
     top: 0;
     background-color: #fff;
     z-index: 10;
+    border-bottom: 1px solid #f5f5f5;
 }
 header .wrapper {
     position: relative;
 }
 .header__logo {
-    width: 202px;
-    height: 65px;
-    float: left;
-    margin-top: 23px;    
+    width: 291px;
+    height: 150px;
+    float: left;    
+    margin-left: -47px;
+    margin-top: -20px;
 }
 .header__logo a {
     display: inline-block;
 }
-.header__logo img {
-    width: 202px;
-    height: 65px;
+.header__logo svg {
+    width: 291px;
+    height: 150px;
 }
 .header__langs {
     list-style: none;
@@ -704,11 +710,11 @@ header.scroll .header__calk_but {
     right: -172px;
 }
 .tab-1__advantage {
-
+    padding-top: 319px;
 }
 .tab-1__advantage h2 {
     padding: 0;
-    margin: 319px auto 94px auto;
+    margin: 0 auto 94px auto;
     font: bold 45px/1 'PT Sans Narrow';
     text-align: center;
     color: #000000;
@@ -718,6 +724,7 @@ header.scroll .header__calk_but {
 .tab-1__advantage h2 span {
     position: relative;
     z-index: 1;
+    display: inline-block;
 }
 .tab-1__advantage h2 b {
     font: bold 120px/1 'PT Sans Narrow';
@@ -1232,6 +1239,7 @@ header.scroll .header__calk_but {
 .tab-1__experts h2 span {
     position: relative;
     z-index: 1;
+    display: inline-block;
 }
 .tab-1__experts h2 b {
     font: bold 120px/1 'PT Sans Narrow';
