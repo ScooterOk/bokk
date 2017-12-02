@@ -222,6 +222,7 @@ textarea {
 	color: #000000;
 	text-align: left;
 	display: none;
+    z-index: 10;
 }
 .tooltip .tooltip__descr::before {
 	content: "";
@@ -264,6 +265,7 @@ textarea {
 .tab-1__advantage,
 .tab-1__recommen,
 .tab-1__experts .wrapper > h2,
+.main__tab-2_info,
 footer h2,
 .footer__text
  {
@@ -348,7 +350,8 @@ header .wrapper {
     cursor: pointer;
     float: right;
     overflow: hidden;
-    margin: 28px 0 0 0;    
+    margin: 28px 0 0 0;  
+    transition: background-color 200ms ease;
 }
 .header__calk_but:hover {
     background-color: #e2344a;    
@@ -532,6 +535,7 @@ header.scroll .header__calk_but {
     margin: 52px 35px 0 0;
     transition: all 150ms ease;
     cursor: pointer;
+    transition: background-color 200ms ease;
 }
 
 .main__tabs_calc:hover {
@@ -556,25 +560,28 @@ header.scroll .header__calk_but {
     cursor: pointer;
     position: relative;
     transition: color 150ms ease;
+    z-index: 2;
 }
 .main__tabs_list li:hover {
 	color: #00bffb;
 }
-.main__tabs_list li.current {
+.main__tabs_list li.back {
     background-color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
 }
-.main__tabs_list li.current:hover {
-	color: #000000;
-}
-.main__tabs_list li.current::after {
-    content: "";
-    display: block;
-    width: 100%;
+.main__tabs_list li.border {    
+    display: block;    
     height: 7px;
     background-color: #00c0f8;
     position: absolute;
     top: -7px;
     left: 0;    
+}
+.main__tabs_list li.current:hover {
+	color: #000000;
 }
 
 /* ==========================================================================
@@ -864,12 +871,10 @@ header.scroll .header__calk_but {
 .tab-1__calculator_table {
 	list-style: none;
 	margin: 0;
-	padding: 0;
-	width: 200%;
+	padding: 0;	
 }
 .tab-1__calculator_first {
-	width: 50%;
-	float: left;
+	
 }
 .tab-1__calculator_first-form {
 	display: table;
@@ -950,6 +955,7 @@ header.scroll .header__calk_but {
 	list-style: none;
 	margin: 0;
 	padding: 0;
+    position: relative;
 }
 .tab-1__calculator_table .layers .layers-selector li {
 	width: 79px;
@@ -960,16 +966,25 @@ header.scroll .header__calk_but {
 	font: 36px/77px 'PT Sans Narrow';
 	color: #000000;
 	text-align: center;
-	cursor: pointer;
+	cursor: pointer;    
+}
+.tab-1__calculator_table .layers .layers-selector li.back {
+    background-color: #00bffb;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
 }
 .tab-1__calculator_table .layers .layers-selector li.current {	
-	object-fit: contain;
-	background-color: #00bffb;
+	object-fit: contain;	
 	border: solid 1px #c8c8c8;
 	border-left: none;
 	border-right: none;
 	color: #fff;
 	cursor: default;
+    z-index: 2;
+    background-color: transparent;
+    position: relative;
 }
 .tab-1__calculator_table  label,
 .tab-1__calculator_table  label {	
@@ -1012,8 +1027,7 @@ header.scroll .header__calk_but {
 	box-shadow: 0 2px 1px 0 rgba(7, 50, 64, 0.5);
 }
 .tab-1__calculator_second {
-	width: 50%;
-	float: left;
+	display: none;
 }
 .tab-1__calculator_second-form {
     list-style: none;
@@ -1161,6 +1175,10 @@ header.scroll .header__calk_but {
     color: #ffffff;
     display: block;
     text-decoration: none;
+    transition: background-color 200ms ease;
+}
+.tab-1__calculator_second-total .offer .total_value .buy-button:hover {
+    background-color: #e2344a;
 }
 .tab-1__recommen {
 	margin-top: 280px;

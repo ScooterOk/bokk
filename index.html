@@ -118,8 +118,10 @@
                     <h1 class="main__tabs_title">Краска интерьерная INTERIOR 7</h1>
                     <div class="main__tabs_calc">Калькулятор</div>
                     <ul class="main__tabs_list">
-                        <li class="current">Описание</li>
-                        <li>Спецификация</li>
+                        <li class="back"></li>
+                        <li class="border"></li>
+                        <li data-tab="1" class="current">Описание</li>
+                        <li data-tab="2">Спецификация</li>
                     </ul>
                 </div>
             </section>
@@ -210,7 +212,7 @@
 	            			<ul class="tab-1__calculator_first-form">
 	            				<li class="area">
 	            					<label>Площадь, м2</label>
-	            					<div class="input">
+	            					<div class="input aria-select">
 	                                    <input type="number" value="1">
 	                                    <i class="plus"></i>
 	                                    <i class="minus"></i>
@@ -226,9 +228,10 @@
 	            							</div>
 	            						</div>
 	            					</label>
-	            					<ul class="layers-selector clearfix">
-	                                	<li class="current">1</li>
-	                                	<li>2</li>
+	            					<ul class="layers-selector clearfix" id="layers-select">
+                                        <li class="back"></li>
+	                                	<li class="current" data-value="1">1</li>
+	                                	<li data-value="2">2</li>
 	                                </ul>
 	            				</li>
 	            			</ul>
@@ -239,7 +242,7 @@
 	            			<ul class="tab-1__calculator_second-form">
                                 <li class="area">
                                     <label>Площадь, м2</label>
-                                    <div class="input">
+                                    <div class="input aria-select">
                                         <input type="number" value="1">
                                         <i class="plus"></i>
                                         <i class="minus"></i>
@@ -256,8 +259,9 @@
                                         </div>
                                     </label>
                                     <ul class="layers-selector clearfix">
-                                        <li class="current">1</li>
-                                        <li>2</li>
+                                        <li class="back"></li>
+                                        <li class="current" data-value="1">1</li>
+                                        <li data-value="2">2</li>
                                     </ul>
                                 </li>
                                 <li class="volume">

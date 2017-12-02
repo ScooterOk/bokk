@@ -19,8 +19,12 @@
 				tab1Recommen1 : false,
 				tab1Recommen2 : false,
 				tab1ExpertsTitle : false,
+				tab2Info : false,
 				footer : false
-			}
+			},
+			tab : 1,
+			calkAria : 0,
+			calkLayers : 1
 		},
 		init : function(){						
 			app.animation.start();
@@ -43,6 +47,101 @@
 					TweenMax.to('.header__calk_but', 0.35, {css : {width : '0', marginLeft : '0'}, ease: Power2.easeOut});
 				}
 
+			});
+			$('.tooltip').click(function(e) {
+				if(!$(e.target).hasClass('tooltip__close')){
+					$('.tooltip__descr').hide();
+					$(this).find('.tooltip__descr').fadeIn(150);
+				}				
+				
+			});
+			$('.tooltip .tooltip__close').click(function(e) {
+				$(this).closest('.tooltip').find('.tooltip__descr').fadeOut(150);
+				e.preventDefault();
+			});
+			$('.main__tabs_list li').hover(function(e){
+				console.log($(this).hasClass('current'));
+				if(app.data.tab == 1 && !$(this).hasClass('current')){
+					TweenMax.to('.main__tabs_list .border', 0.3, {x : '100%', opacity : 1, ease: Power3.easeIn});
+				}else if(app.data.tab == 2 && !$(this).hasClass('current')){
+					TweenMax.to('.main__tabs_list .border', 0.3, {x : '0%', opacity : 1, ease: Power3.easeIn});
+				}
+			},
+			function(){
+				if(app.data.tab == 1 && !$(this).hasClass('current')){
+					TweenMax.to('.main__tabs_list .border', 0.3, {x : '0%', opacity : 1, ease: Power3.easeIn});
+				}else if(app.data.tab == 2 && !$(this).hasClass('current')){
+					TweenMax.to('.main__tabs_list .border', 0.3, {x : '100%', opacity : 1, ease: Power3.easeIn});
+				}				
+			});
+			$('.main__tabs_list li').click(function(e) {				
+				$('.main__tabs_list li').removeClass('current');
+				if(app.data.tab == 1){
+					app.data.tab = 2;
+					$(this).addClass('current');
+					TweenMax.set('article.main__tab-2', {opacity : 0});
+					TweenMax.set('.main__tabs_list .border',{x : '100%'});
+					TweenMax.to('.main__tabs_list .back', 0.3, {x : '100%', opacity : 1, ease: Power3.easeIn});
+					TweenMax.to('article.main__tab-1', 0.3, {x : '-100%', opacity : 0, ease: Power3.easeIn, onComplete : function(){
+						$('article.main__tab-1').hide();
+						$('article.main__tab-2').show();
+						TweenMax.fromTo('article.main__tab-2', 0.3, {x : '100%', opacity : 0,}, {x : '0%', opacity : 1, ease: Power3.easeIn, onComplete : function(){
+							app.animation.tab2Info();
+						}});
+					}});
+				}else{
+					app.data.tab = 1;
+					$(this).addClass('current');					
+					TweenMax.set('article.main__tab-1', {opacity : 0});
+					TweenMax.set('.main__tabs_list .border',{x : '0%'});
+					TweenMax.to('.main__tabs_list .back', 0.3, {x : '0%', opacity : 1, ease: Power3.easeIn});
+					TweenMax.to('article.main__tab-2', 0.3, {x : '100%', opacity : 0, ease: Power3.easeIn, onComplete : function(){
+						$('article.main__tab-2').hide();
+						$('article.main__tab-1').show();
+						TweenMax.fromTo('article.main__tab-1', 0.3, {x : '-100%', opacity : 0,}, {x : '0%', opacity : 1, ease: Power3.easeIn});
+					}});
+				}
+			});
+			$('.aria-select input').focus(function(e){
+					app.data.calkAria = $(this).val();					
+					$(this).val('');
+				});
+			$('.aria-select input').blur(function(e){
+				if($(this).val()){
+					app.data.calkAria = $(this).val();
+				}
+				$('.aria-select input').val(app.data.calkAria);
+			});
+			$('.aria-select i').click(function(e){
+				var val = Number($('.aria-select input').val());
+				if($(this).hasClass('plus')){
+					val++;
+				}else{
+					if(val > 1)val--;
+				}
+				app.data.calkAria = val;
+				$('.aria-select input').val(val);
+			});
+			$('.layers-selector li').click(function(e) {
+				$('.layers-selector li').removeClass('current');
+				if(app.data.calkLayers == 1 && !$(this).hasClass('current')){
+					app.data.calkLayers = 2;
+					TweenMax.to('.layers-selector .back', 0.15, {x : '100%', opacity : 1, ease: Power3.easeIn, onComplete : function(){
+						$('.layers-selector li[data-value="2"]').addClass('current');
+					}});
+				}else if(app.data.calkLayers == 2 && !$(this).hasClass('current')){
+					app.data.calkLayers = 1;
+					TweenMax.to('.layers-selector .back', 0.15, {x : '0%', opacity : 1, ease: Power3.easeIn, onComplete : function(){
+						$('.layers-selector li[data-value="1"]').addClass('current');
+					}});
+				}
+			});
+			$('.tab-1__calculator_first-form-button').click(function(e){
+				TweenMax.to('.tab-1__calculator_first', 0.3, {x : '-100%', opacity : 0, ease: Power3.easeIn, onComplete : function(){
+					$('.tab-1__calculator_first').hide();
+					$('.tab-1__calculator_second').show();
+					TweenMax.fromTo('.tab-1__calculator_second', 0.3, {x : '100%', opacity : 0,}, {x : '0%', opacity : 1, ease: Power3.easeIn});
+				}});				
 			});
 		},
 		animation : {
@@ -138,6 +237,12 @@
 				TweenMax.set('.tab-1__experts .wrapper > h2', {opacity : 1});
 				TweenMax.fromTo('.tab-1__experts .wrapper > h2 span', 1.5, {opacity : 0, y : -25}, {opacity : 1, y : 0});
 				TweenMax.fromTo('.tab-1__experts .wrapper > h2 b', 1.5, {opacity : 0, y : 50}, {opacity : 1, y : 0});
+			},
+			tab2Info : function(){
+				TweenMax.set('.main__tab-2_info', {opacity : 1});
+				TweenMax.fromTo('.main__tab-2_info h2 span', 1.5, {opacity : 0, x : -100}, {opacity : 1, x : 0});
+				TweenMax.fromTo('.main__tab-2_info h2 b', 1.5, {opacity : 0, x : 100}, {opacity : 1, x : 0});
+				TweenMax.fromTo('.main__tab-2_info_text', 1.5, {opacity : 0, y : 50}, {opacity : 1, y : 0, delay : 0});
 			},
 			footer : function(){
 				TweenMax.set('footer h2, .footer__text', {opacity : 1});
