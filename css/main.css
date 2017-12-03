@@ -356,6 +356,10 @@ header .wrapper {
 .header__calk_but:hover {
     background-color: #e2344a;    
 }
+.header__calk_but:active {
+    background-color: #d0021b;
+    box-shadow: 0 2px 1px 0 rgba(50, 1, 1, 0.5);
+}
 header.scroll .header__calk_but {
     width: 224px;
     margin-left: 81px;
@@ -540,6 +544,10 @@ header.scroll .header__calk_but {
 
 .main__tabs_calc:hover {
     background-color: #e2344a;
+}
+.main__tabs_calc:active {
+    background-color: #d0021b;
+    box-shadow: 0 2px 1px 0 rgba(50, 1, 1, 0.5);
 }
 .main__tabs_list {
     position: absolute;
@@ -1183,6 +1191,10 @@ header.scroll .header__calk_but {
 }
 .tab-1__calculator_second-total .offer .total_value .buy-button:hover {
     background-color: #e2344a;
+}
+.tab-1__calculator_second-total .offer .total_value .buy-button:active {
+    background-color: #d0021b;
+    box-shadow: 0 2px 1px 0 rgba(50, 1, 1, 0.5);
 }
 .tab-1__recommen {
 	margin-top: 280px;

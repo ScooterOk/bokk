@@ -51,8 +51,8 @@
 			$(window).resize(function(e) {
 				app.computed.valikResize();
 			});
-			$('.tooltip').click(function(e) {
-				if(!$(e.target).hasClass('tooltip__close')){
+			$('.tooltip').mouseenter(function(e) {
+				if(!$(e.target).hasClass('tooltip__descr') && $(this).find('.tooltip__descr').is(':hidden')){
 					$('.tooltip__descr').hide();
 					$(this).find('.tooltip__descr').fadeIn(150);
 				}				
