@@ -746,6 +746,8 @@ header.scroll .header__calk_but {
     list-style: none;
     margin: 0;
     padding: 0;
+    display: table;
+    width: 100%;
 }
 .tab-1__advantage_table > li {
     display: table-cell;
@@ -768,8 +770,10 @@ header.scroll .header__calk_but {
     left: 236px;
     top: 175px;
 }
-.tab-1__advantage_table.odd > li.right {
-    
+.tab-1__advantage_table.odd > li.right,
+.tab-1__advantage_table.even > li.left {
+    height: 462px;
+    background: no-repeat center / cover;
 }
 .tab-1__advantage_table > li img {
     width: 100%;
@@ -1503,6 +1507,9 @@ header.scroll .header__calk_but {
 	color: #00bffb;
 	text-decoration: none;
 	margin-left: 10px;
+    text-decoration: none;
+    border-bottom: 1px solid  #00bffb;
+    padding-bottom: 4px;
 }
 .main__tab-2_table > li .tooltip {
 	margin-left: 15px;

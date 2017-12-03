@@ -48,6 +48,9 @@
 				}
 
 			});
+			$(window).resize(function(e) {
+				app.computed.valikResize();
+			});
 			$('.tooltip').click(function(e) {
 				if(!$(e.target).hasClass('tooltip__close')){
 					$('.tooltip__descr').hide();
@@ -74,7 +77,7 @@
 					TweenMax.to('.main__tabs_list .border', 0.3, {x : '100%', opacity : 1, ease: Power3.easeIn});
 				}				
 			});
-			$('.main__tabs_list li').click(function(e) {				
+			$('.main__tabs_list li').click(function(e) {
 				$('.main__tabs_list li').removeClass('current');
 				if(app.data.tab == 1){
 					app.data.tab = 2;
@@ -103,9 +106,9 @@
 				}
 			});
 			$('.aria-select input').focus(function(e){
-					app.data.calkAria = $(this).val();					
-					$(this).val('');
-				});
+				app.data.calkAria = $(this).val();					
+				$(this).val('');
+			});
 			$('.aria-select input').blur(function(e){
 				if($(this).val()){
 					app.data.calkAria = $(this).val();
@@ -142,7 +145,7 @@
 					$('.tab-1__calculator_second').show();
 					TweenMax.fromTo('.tab-1__calculator_second', 0.3, {x : '100%', opacity : 0,}, {x : '0%', opacity : 1, ease: Power3.easeIn});
 				}});				
-			});
+			});			
 		},
 		animation : {
 			start : function(){
@@ -172,7 +175,7 @@
 			mainTabs : function(){
 				TweenMax.set('.main__tabs_roller', {opacity : 1});
 				var valik = TweenMax.to('.main__tabs_roller-valik', 0.25, {css:{backgroundPosition :"-1638px 0px"}, ease:SteppedEase.config(6), repeat:-1});
-				TweenMax.fromTo('.main__tabs_roller', 2, {css:{width : '0'}}, {css:{width : '100%'}});
+				TweenMax.fromTo('.main__tabs_roller', 2, {css:{width : '0'}}, {css:{width : app.computed.valikWidth()}});
 				TweenMax.fromTo('.main__tabs_ava', 1, {opacity : 0}, {opacity : 1, delay : 0.5});
 				TweenMax.fromTo('.main__tabs_list', 1, {opacity : 0}, {opacity : 1, delay : 0.9});
 				TweenMax.fromTo('.main__tabs_title', 1, {opacity : 0}, {opacity : 1, delay : 1.3});				
@@ -332,6 +335,18 @@
 				}else{
 					return true;
 				}
+			},
+			valikWidth : function(){				
+				var w;				
+				if($(window).width() > 1865){
+					w = '100%';
+				}else if($(window).width() < 1865){
+					w = $('header').width() + 150;
+				}				
+				return w;
+			},
+			valikResize : function(){				
+				TweenMax.to('.main__tabs_roller', 0.3, {css:{width : app.computed.valikWidth()}});
 			}
 		}
 	}	
