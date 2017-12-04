@@ -42,7 +42,11 @@
 			$(window).scroll(function(e) {
 				app.scroller();
 				if($(document).scrollTop() > ($('.main__tabs').offset().top + $('.main__tabs').height())){
-					TweenMax.to('.header__calk_but', 0.35, {css : {width : '224px', marginLeft : '81px'}, ease: Power2.easeOut});
+					if($('header').width() > 935){
+						TweenMax.to('.header__calk_but', 0.35, {css : {width : '224px', marginLeft : '81px'}, ease: Power2.easeOut});	
+					}else{
+						TweenMax.to('.header__calk_but', 0.2, {css : {width : '48px', marginRight : '15px'}, ease: Power2.easeOut});
+					}					
 				}else{
 					TweenMax.to('.header__calk_but', 0.35, {css : {width : '0', marginLeft : '0'}, ease: Power2.easeOut});
 				}
@@ -50,6 +54,10 @@
 			});
 			$(window).resize(function(e) {
 				app.computed.valikResize();
+			});
+			$('.header__langs li a').click(function(e) {
+				var current = $(this).closest('li').hasClass('current');
+				if(current)return false;				
 			});
 			$('.tooltip').mouseenter(function(e) {
 				if(!$(e.target).hasClass('tooltip__descr') && $(this).find('.tooltip__descr').is(':hidden')){
@@ -197,7 +205,12 @@
 				TweenMax.set('.tab-1__photo', {opacity : 1});				
 				TweenMax.to('.tab-1__photo img', 2, {opacity : 1});
 				TweenMax.fromTo('.tab-1__photo_circle', 1, {opacity : 0, rotation : -360}, {opacity : 1, rotation : 0, delay : 0.3});
-				TweenMax.staggerTo(['.tab-1__photo_wings.country', '.tab-1__photo_wings.honors', '.tab-1__photo_wings.history', '.tab-1__photo_wings.iso'], 0.2, {scale : 1, delay : 1, ease: Back.easeOut.config(1.8)}, 0.25);
+				if($('header').width() > 935){
+					TweenMax.staggerTo(['.tab-1__photo_wings.country', '.tab-1__photo_wings.honors', '.tab-1__photo_wings.history', '.tab-1__photo_wings.iso'], 0.2, {scale : 1, delay : 1, ease: Back.easeOut.config(1.8)}, 0.25);					
+				}else{
+					TweenMax.staggerTo(['.tab-1__photo_wings.country', '.tab-1__photo_wings.honors', '.tab-1__photo_wings.iso', '.tab-1__photo_wings.history'], 0.2, {scale : 1, delay : 1, ease: Back.easeOut.config(1.8)}, 0.25);					
+				}
+				
 				
 			},
 			tab1AdvantageTitle : function(){				
@@ -340,9 +353,12 @@
 				var w;				
 				if($(window).width() > 1865){
 					w = '100%';
-				}else if($(window).width() < 1865){
+				}else if($(window).width() < 1865 && $(window).width() > 1024){
 					w = $('header').width() + 150;
-				}				
+				}else if($(window).width() < 1024){
+					console.log()
+					w = $('header').width() + 300;
+				}
 				return w;
 			},
 			valikResize : function(){				

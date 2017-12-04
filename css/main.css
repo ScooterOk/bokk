@@ -379,7 +379,8 @@ header.scroll .header__calk_but {
     overflow: hidden;    
 }
 .top__slider_list li {
-
+	background: no-repeat center / cover;
+	height: 670px;
 }
 .top__slider .slick-prev {
     width: 32px;
@@ -1434,6 +1435,11 @@ header.scroll .header__calk_but {
     margin: 240px auto 0 auto;
     text-align: center;
 }
+.tab-1__banner-mob {
+    margin: 144px auto 0 auto;
+    text-align: center;
+    display: none;
+}
 
 /* ==========================================================================
    MAIN TAB-2 CALCULATOR classes
@@ -1466,6 +1472,7 @@ header.scroll .header__calk_but {
 .main__tab-2_info h2 span {
     position: relative;
     z-index: 1;
+    display: inline-block;
 }
 .main__tab-2_info h2 b {
     font: bold 120px/1 'PT Sans Narrow';
