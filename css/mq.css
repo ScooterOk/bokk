@@ -1296,4 +1296,7 @@
         margin: 0 auto 28px auto!important;
         display: table!important;
     }
+    .tooltip .tooltip__descr .tooltip__close {
+        display: block;
+    }
 }

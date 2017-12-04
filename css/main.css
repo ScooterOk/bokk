@@ -234,6 +234,16 @@ textarea {
     left: 54px;
     top: -20px;    
 }
+.tooltip .tooltip__descr::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    position: absolute;
+    left: 49px;
+    top: -50px;    
+}
 .tooltip .tooltip__descr .tooltip__close {
 	width: 13px;
 	height: 13px;
@@ -242,6 +252,7 @@ textarea {
 	top: 12px;
 	right: 12px;
 	cursor: pointer;
+    display: none;
 }
 
 
@@ -342,15 +353,15 @@ header .wrapper {
 }
 .header__calk_but {
     width: 0;
-    height: 56px;    
+    height: 48px;    
     background-color: #d0021b;
-    font: bold 24px/56px 'PT Sans Narrow';      
+    font: bold 24px/48px 'PT Sans Narrow';      
     text-align: center;
     color: #ffffff;    
     cursor: pointer;
     float: right;
     overflow: hidden;
-    margin: 28px 0 0 0;  
+    margin: 16px 0 0 0;  
     transition: background-color 200ms ease;
 }
 .header__calk_but:hover {
@@ -360,10 +371,7 @@ header .wrapper {
     background-color: #d0021b;
     box-shadow: 0 2px 1px 0 rgba(50, 1, 1, 0.5);
 }
-header.scroll .header__calk_but {
-    width: 224px;
-    margin-left: 81px;
-}
+
 
 /* ==========================================================================
    TOP SLIDER classes
@@ -380,7 +388,7 @@ header.scroll .header__calk_but {
 }
 .top__slider_list li {
 	background: no-repeat center / cover;
-	height: 670px;
+	height: 770px;
 }
 .top__slider .slick-prev {
     width: 32px;
@@ -481,7 +489,7 @@ header.scroll .header__calk_but {
     width: 100%;
     height: 216px;
     top: 0;
-    left: -249px;
+    left: -170px;
     background-color: #f5f5f5;    
 }
 .main__tabs_roller-valik {
@@ -1613,4 +1621,5 @@ footer h2 b {
     background: url('../img/tel.svg') no-repeat left center / 22px 36px;
     margin-top: 17px;
 }
+
 

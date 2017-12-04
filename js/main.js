@@ -30,8 +30,10 @@
 			app.animation.start();
 			app.events();
 			$('.top__slider_list').slick({
-				dots : true,
-				appendDots : $('.top__slider_list-dots')
+				dots : false,
+				appendDots : $('.top__slider_list-dots'),
+				autoplay : true,
+				autoplaySpeed : 5000
 			});
 			$('.bottom__slider_list').slick({
 				dots : true,
@@ -41,6 +43,19 @@
 		events : function(){
 			$(window).scroll(function(e) {
 				app.scroller();
+				if($(document).scrollTop() > 32){
+					if(!$('header').hasClass('scroll')){
+						$('header').addClass('scroll');
+						TweenMax.to('header', 0.2, {css : {height : '80px'}, ease: Power2.easeOut});
+						TweenMax.to('.header__logo', 0.15, {scale : 0.7, y : -15, ease: Power2.easeOut});
+						TweenMax.to('.header__langs', 0.15, {y : -12, ease: Power2.easeOut});
+					}
+				}else{
+					$('header').removeClass('scroll');
+					TweenMax.to('header', 0.2, {css : {height : '112px'}, ease: Power1.easeOut});
+					TweenMax.to('.header__logo', 0.15, {scale : 1, y : 0, ease: Power2.easeOut});
+					TweenMax.to('.header__langs', 0.15, {y : 0, ease: Power2.easeOut});
+				}
 				if($(document).scrollTop() > ($('.main__tabs').offset().top + $('.main__tabs').height())){
 					if($('header').width() > 935){
 						TweenMax.to('.header__calk_but', 0.35, {css : {width : '224px', marginLeft : '81px'}, ease: Power2.easeOut});	
@@ -50,7 +65,40 @@
 				}else{
 					TweenMax.to('.header__calk_but', 0.35, {css : {width : '0', marginLeft : '0'}, ease: Power2.easeOut});
 				}
-
+			});
+			$('.video__player').click(function(e){
+				var id = document.querySelector('#modal-1 .modal__wrapper');
+				var w, h, videoId;
+				videoId = $(this).attr('video-id');
+				if($(window).width() > 935){
+					w = 854;
+					h = 480;
+				}else{
+					w = $(window).width() - 60;
+					h = w / 1.77;
+				}	
+				function onYouTubeIframeAPIReady() {
+					player = new YT.Player(id, {
+						height: h,
+						width: w,
+						playerVars: {
+							'autoplay': 1
+						},
+						videoId: videoId,
+						events: {
+							'onReady': function(){
+								$('#modal-1').fadeIn(350);
+							}				
+						}
+					});
+				}
+				onYouTubeIframeAPIReady();	
+			});
+			$('.modal').click(function(e){
+				if(!$(e.target).closest('modal__wrapper').length){
+					player.destroy();
+					$(this).fadeOut(350);
+				}
 			});
 			$(window).resize(function(e) {
 				app.computed.valikResize();
@@ -59,11 +107,22 @@
 				var current = $(this).closest('li').hasClass('current');
 				if(current)return false;				
 			});
+			$('.go-calk').click(function(e) {
+				var y = $('.tab-1__calculator').offset().top - $('header').height();
+				var body = $("html, body");
+				body.stop().animate({scrollTop:y}, 500, 'swing');
+
+				$(document).scrollTop(y);
+			});
 			$('.tooltip').mouseenter(function(e) {
 				if(!$(e.target).hasClass('tooltip__descr') && $(this).find('.tooltip__descr').is(':hidden')){
 					$('.tooltip__descr').hide();
 					$(this).find('.tooltip__descr').fadeIn(150);
 				}				
+				
+			});
+			$('.tooltip').mouseleave(function(e) {				
+					$('.tooltip__descr').hide();					
 				
 			});
 			$('.tooltip .tooltip__close').click(function(e) {
@@ -269,7 +328,7 @@
 		},
 		scroller : function(){			
 			var st = $(window).scrollTop();						
-			if(st > ($('.main__tabs').offset().top - ($(window).height() / 1.3)) && !app.data.animDone.mainTabs && !app.computed.mainTabsShow()){
+			if(st > ($('.main__tabs').offset().top - ($(window).height() / 1.1)) && !app.data.animDone.mainTabs && !app.computed.mainTabsShow()){
 				app.data.animDone.mainTabs = true;
 				app.animation.mainTabs();
 			}			
@@ -343,7 +402,7 @@
 				};
 			},
 			mainTabsShow : function(){
-				if($('.main__tabs').offset().top > $(window).height() - 200){
+				if($('.main__tabs').offset().top > $(window).height() - 70){
 					return false;
 				}else{
 					return true;
@@ -353,10 +412,9 @@
 				var w;				
 				if($(window).width() > 1865){
 					w = '100%';
-				}else if($(window).width() < 1865 && $(window).width() > 1024){
-					w = $('header').width() + 150;
-				}else if($(window).width() < 1024){
-					console.log()
+				}else if($(window).width() < 1865){
+					w = $('header').width() + 100;
+				}else if($(window).width() < 1024){					
 					w = $('header').width() + 300;
 				}
 				return w;
