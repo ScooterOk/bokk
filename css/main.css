@@ -469,19 +469,22 @@ header .wrapper {
     padding: 0;
 }
 .top__slider .slick-dots li {
-    width: 16px;
-    height: 16px;
+    width: 120px;
+    height: 120px;
     float: left;
-    margin: 0 24px 0 0;
-    border-radius: 50%;
-    background-color: #fff;
+    margin: 0 40px 0 0;        
     padding: 0;
     cursor: pointer;
+    border: 3px solid transparent;
+    background: no-repeat center / cover;
 }
 .top__slider .slick-dots li.slick-active {
-    width: 16px;
-    height: 16px;
-    background-color: transparent;
+    width: 120px;
+    height: 120px;
+    float: left;
+    margin: 0 40px 0 0;        
+    padding: 0;
+    cursor: pointer;
     border: 3px solid #fff;
 }
 .top__slider .slick-dots li:last-child {
@@ -1165,15 +1168,15 @@ header .wrapper {
     width: 79px;
     height: 77px;
     position: relative;
-    background-color: transparent;
-    border: none;
+    background-color: transparent!important;
+    border: none!important;
 }
 .choice-volume > li .input input {
     width: 100%;
     height: 75px;
     object-fit: contain;
-    background-color: transparent;
-    border: none;
+    background-color: transparent!important;
+    border: none!important;
     font: 36px/75px 'PT Sans Narrow';
     color: #00bffb;
     text-align: center;

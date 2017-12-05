@@ -7,6 +7,9 @@
 	});
 
 	var app = {
+		/* ==========================================================================
+										    DATA 
+   			========================================================================== */
 		data : {
 			animDone : {
 				mainTabs : false,
@@ -26,11 +29,20 @@
 			calkAria : 0,
 			calkLayers : 1
 		},
+		/* ==========================================================================
+										INITIALIZATION
+   			========================================================================== */
 		init : function(){						
 			app.animation.start();
 			app.events();
+			$('.top__slider_list').on('init', function(event, slick, direction){			  	
+			  	$(slick.$slides).map(function(i, el){
+			  		var url = el.getAttribute('data-prev');
+			  		$(slick.$dots).find('li')[i].style.backgroundImage = 'url("'+url+'")';
+			  	});			  
+			});
 			$('.top__slider_list').slick({
-				dots : false,
+				dots : true,
 				appendDots : $('.top__slider_list-dots'),
 				autoplay : true,
 				autoplaySpeed : 10000
@@ -38,8 +50,11 @@
 			$('.bottom__slider_list').slick({
 				dots : true,
 				appendDots : $('.bottom__slider_list-dots')
-			});
+			});			
 		},
+		/* ==========================================================================
+   											EVENTS
+   			========================================================================== */
 		events : function(){
 			$(window).scroll(function(e) {
 				app.scroller();
@@ -262,7 +277,7 @@
 				TweenMax.fromTo('.main__tabs_calc', 1, {opacity : 0}, {opacity : 1, delay : 2});
 				setTimeout(function(){
 					valik.pause();
-				}, 1900)
+				}, 2400)
 			},
 			tab1Use : function(){
 				TweenMax.set('.tab-1__use-left, .tab-1__use-right', {opacity : 1});
@@ -280,7 +295,7 @@
 				if($('header').width() > 935){
 					TweenMax.staggerTo(['.tab-1__photo_wings.country', '.tab-1__photo_wings.honors', '.tab-1__photo_wings.history', '.tab-1__photo_wings.iso'], 0.5, {scale : 1, delay : 1, ease: Back.easeOut.config(1.8)}, 0.5);
 				}else{
-					TweenMax.staggerTo(['.tab-1__photo_wings.country', '.tab-1__photo_wings.honors', '.tab-1__photo_wings.iso', '.tab-1__photo_wings.history'], 0.5, {scale : 1, delay : 1, ease: Back.easeOut.config(1.8)}, 0.5);
+					TweenMax.staggerTo(['.tab-1__photo_wings.country', '.tab-1__photo_wings.honors', '.tab-1__photo_wings.iso', '.tab-1__photo_wings.history'], 0.5, {scale : 1, ease: Back.easeOut.config(1.8)}, 0.5);
 				}
 				
 				
@@ -388,6 +403,9 @@
 			}
 
 		},
+		/* ==========================================================================
+   										COMPUTED
+   			========================================================================== */
 		computed : {
 			logoMiddle : function(){
 				var x, y, w, h, ww, wh;
@@ -426,10 +444,12 @@
 				var w;				
 				if($(window).width() > 1865){
 					w = '100%';
-				}else if($(window).width() < 1865){
+				}else if($(window).width() < 1865 && $(window).width() > 1024){
 					w = $('header').width() + 100;
-				}else if($(window).width() < 1024){					
+				}else if($(window).width() < 1024 && $(window).width() > 935){					
 					w = $('header').width() + 300;
+				}else if($(window).width() < 935){
+					w = $('header').width() + 500;
 				}
 				return w;
 			},
