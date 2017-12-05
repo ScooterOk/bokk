@@ -10,16 +10,27 @@
         <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
 
         <link rel="manifest" href="site.webmanifest">
-        <link rel="apple-touch-icon" href="icon.png">
+        <link rel="apple-touch-icon" href="./icon.png">
         <!-- Place favicon.ico in the root directory -->
         <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700" rel="stylesheet">
 
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/slick.css">        
-        <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/mq.css">
+        <link rel="stylesheet" href="./css/normalize.css">
+        <link rel="stylesheet" href="./css/slick.css">        
+        <link rel="stylesheet" href="./css/main.css">
+        <link rel="stylesheet" href="./css/mq.css">
     </head>
     <body>
+    	<section id="preload-image">
+        	<img src="./img/slider/1.png" alt="">
+        	<img src="./img/slider/2.png" alt="">
+        	<img src="./img/slider/3.png" alt="">
+        	<img src="./img/top-slider-arrow.svg" alt="">
+        	<img src="./img/top-slider-arrow-hover.svg" alt="">
+        	<img src="./img/top-slider-arrow-active.svg" alt="">
+        	<img src="./img/bottom-slider-arrow.svg" alt="">
+        	<img src="./img/bottom-slider-arrow-hover.svg" alt="">
+        	<img src="./img/bottom-slider-arrow-active.svg" alt="">
+        </section>
 
         <!-- HEADER -->
         <header>
@@ -100,9 +111,9 @@
         <!-- TOP SLIDER -->
         <article class="top__slider">            
             <ul class="top__slider_list">
-                <li style="background-image: url('img/slider/1.jpg');"></li>
-                <li style="background-image: url('img/slider/2.jpg');"></li>
-                <li style="background-image: url('img/slider/3.jpg');"></li>
+                <li style="background-image: url('./img/slider/1.png');"></li>
+                <li style="background-image: url('./img/slider/2.png');"></li>
+                <li style="background-image: url('./img/slider/3.png');"></li>
             </ul>
             <div class="top__slider_list-dots"></div>            
         </article>
@@ -116,7 +127,7 @@
                 </div>
                 <div class="wrapper clearfix">
                     <div class="main__tabs_ava">
-                        <img src="img/banka1.png" alt="">
+                        <img src="./img/banka1.png" alt="">
                     </div>
                     <h1 class="main__tabs_title">Краска интерьерная INTERIOR 7</h1>
                     <div class="main__tabs_calc go-calk">Калькулятор</div>
@@ -144,12 +155,12 @@
                             </div>
                         </div>
                         <div class="tab-1__use-right">
-                            <div class="video__player" video-id="BfD7saeBa00"><img src="img/stock-photo-painter-man-529237024.png" alt=""></div>
+                            <div class="video__player" video-id="BfD7saeBa00"><img src="./img/stock-photo-painter-man-529237024.png" alt=""></div>
                         </div>
                     </section>
                     <section class="tab-1__photo middlefix">
                     	<div class="tab-1__photo_circle"></div>
-                        <img class="tab-1__photo_img" src="img/banka-2.png" alt="">
+                        <img class="tab-1__photo_img" src="./img/banka-2.png" alt="">
                         <div class="tab-1__photo_wings country">Европейское сырье</div>
                         <div class="tab-1__photo_wings honors">Народна нагорода</div>
                         <div class="tab-1__photo_wings iso">ISO 9001</div>                        
@@ -169,10 +180,10 @@
                                 <div class="tab-1__advantage-descr">Легко наносится, без разбрызгивания и потеков.</div>
                             </div>
                         </li>
-                        <li class="right" style="background-image:url('img/advantage-1.png');"></li>
+                        <li class="right" style="background-image:url('./img/advantage-1.png');"></li>
                     </ul>
                     <ul class="tab-1__advantage_table dos even">
-                        <li class="left" style="background-image:url('img/advantage-2.png');"></li>
+                        <li class="left" style="background-image:url('./img/advantage-2.png');"></li>
                         <li class="right">
                             <b class="tab-1__advantage-num">02</b>
                             <div class="tab-1__advantage_content">
@@ -196,7 +207,7 @@
                                 </ul>                                    
                             </div>
                         </li>
-                        <li class="right" style="background-image:url('img/advantage-3.png');"></li>
+                        <li class="right" style="background-image:url('./img/advantage-3.png');"></li>
                     </ul>
                 </section>                
             	<section class="tab-1__calculator">
@@ -210,7 +221,7 @@
 	            				<li class="area">
 	            					<label>Площадь, м2</label>
 	            					<div class="input aria-select">
-	                                    <input type="number" value="1">
+	                                    <input type="number" value="1" class="no-spinners">
 	                                    <i class="plus"></i>
 	                                    <i class="minus"></i>
 	                                </div>                                                                
@@ -240,7 +251,7 @@
                                 <li class="area">
                                     <label>Площадь, м2</label>
                                     <div class="input aria-select">
-                                        <input type="number" value="1">
+                                        <input type="number" value="1" class="no-spinners">
                                         <i class="plus"></i>
                                         <i class="minus"></i>
                                     </div>                                                                
@@ -262,7 +273,7 @@
                                     </ul>
                                 </li>
                                 <li class="volume">
-                                    <label>Площадь, м2</label>
+                                    <label>Объем</label>
                                     <div class="input">
                                         <input type="text" readonly value="16 кг" />
                                     </div>
@@ -328,9 +339,10 @@
             						<span>Как правильно экономить</span>
             						<b>ЭКОНОМИЯ</b>
             					</h2>
+            					<div class="tab-1__recommen_table-descr">Правильное использование нашей краски поможет вам экономить. После просмотра видео вы сможете использовать нашу краску намного лучше!</div>
             				</li>
             				<li class="right">
-            					<div class="video__player" video-id="BfD7saeBa00"><img src="img/recommen-1.png" alt=""></div>
+            					<div class="video__player" video-id="BfD7saeBa00"><img src="./img/recommen-1.png" alt=""></div>
             				</li>
             			</ul>
             			<ul class="tab-1__recommen_table dos">
@@ -344,7 +356,7 @@
             					</div>
             				</li>
             				<li class="right">
-            					<div class="video__player" video-id="BfD7saeBa00"><img src="img/recommen-2.png" alt=""></div>
+            					<div class="video__player" video-id="BfD7saeBa00"><img src="./img/recommen-2.png" alt=""></div>
             				</li>
             			</ul>
             		</div>
@@ -358,7 +370,7 @@
             			<ul class="bottom__slider_list">
 			                <li class="profile">
 			                	<div class="profile__ava">
-			                		<img src="img/handsome-man.png" alt=""/>
+			                		<img src="./img/handsome-man.png" alt=""/>
 			                	</div>
 			                	<div class="profile_name">
 			                		<b>Сергей Войт</b>
@@ -370,7 +382,7 @@
 			                </li>
 			                <li class="profile">
 			                	<div class="profile__ava">
-			                		<img src="img/handsome-man.png" alt=""/>
+			                		<img src="./img/handsome-man.png" alt=""/>
 			                	</div>
 			                	<div class="profile_name">
 			                		<b>Сергей Войт</b>
@@ -382,7 +394,7 @@
 			                </li>
 			                <li class="profile">
 			                	<div class="profile__ava">
-			                		<img src="img/handsome-man.png" alt=""/>
+			                		<img src="./img/handsome-man.png" alt=""/>
 			                	</div>
 			                	<div class="profile_name">
 			                		<b>Сергей Войт</b>
@@ -401,12 +413,12 @@
             	</section>
             	<section class="tab-1__banner">
             		<a href="">
-            			<img src="img/banner.png" alt="">
+            			<img src="./img/banner.png" alt="">
             		</a>
             	</section>
             	<section class="tab-1__banner-mob">
             		<a href="">
-            			<img src="img/banner-mob.png" alt="">
+            			<img src="./img/banner-mob.png" alt="">
             		</a>
             	</section>
             </article>
@@ -647,7 +659,7 @@
 	        	<div class="footer__text">Наша миссия – Успешное создание лакокрасочных материалов высочайшего уровня с заботой об окружающей среде и оказание наилучшего сервиса для максимально комфортной жизни!</div>
 	        	<div class="footer__bottom clearfix">
 	        		<div class="footer__bottom_logo">
-	        			<img src="img/header-logo.png" alt="" />
+	        			<img src="./img/header-logo.png" alt="" />
 	        		</div>
 	        		<div class="footer__bottom_contact">38 044 123 45 67</div>
 	        	</div>
@@ -661,16 +673,14 @@
                 
             </div>
         </section>
-
-        
-        
+        <div id="noscroll"></div>        
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>        
-        <script src="js/vendor/slick.min.js"></script>
-        <script src="js/vendor/jquery.mousewheel.min.js"></script>        
-        <script src="js/vendor/TweenMax.min.js"></script>
+        <script>window.jQuery || document.write('<script src="./js/vendor/jquery-3.2.1.min.js"><\/script>')</script>        
+        <script src="./js/vendor/slick.min.js"></script>
+        <script src="./js/vendor/jquery.mousewheel.min.js"></script>        
+        <script src="./js/vendor/TweenMax.min.js"></script>
         <script src="https://www.youtube.com/iframe_api"></script>
-        <script src="js/main.js"></script>
+        <script src="./js/main.js"></script>
         
     </body>
 </html>

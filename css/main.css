@@ -198,7 +198,20 @@ textarea {
     border-radius: 0 5px 5px 0;
 }
 
-
+#preload-image {
+	position: absolute;
+	top: -20000px;
+	left: -20000px;
+	opacity: 0;
+}
+#noscroll {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;	
+	z-index: 100;
+}
 .tooltip {
 	width: 28px;
 	height: 28px;
@@ -680,23 +693,23 @@ header .wrapper {
     opacity: 1;
 }
 .tab-1__photo {
-    width: 631px;
-    height: 631px;
+    width: 520px;
+    height: 520px;
     margin: 145px auto 0 auto;    
     text-align: center;
     position: relative;
 }
 .tab-1__photo_circle {
-	width: 631px;
-    height: 631px;
+	width: 520px;
+    height: 520px;
     background: url('../img/circle.svg') no-repeat center / cover;
     position: absolute;
     top: 0;
     left : 0;
 }
 .tab-1__photo img {
-    width: 556px;
-    height: 379px;
+    width: 459px;
+    height: 312px;
     vertical-align: middle;
 }
 .tab-1__photo_wings {
@@ -709,29 +722,29 @@ header .wrapper {
     width: 170px;
     background: url('../img/flag-of-europe.png') no-repeat center top / 93px 62px;
     padding-top: 87px;
-    top: -7px;
-    left: -172px;
+    top: -24px;
+    left: -239px;
 } 
 .tab-1__photo_wings.iso {
     width: 130px;
     background: url('../img/iso.png') no-repeat center top / 89px 90px;
     padding-top: 123px;
-    bottom: 70px;
-    left: -152px;
+    bottom: 43px;
+    left: -220px;
 }
 .tab-1__photo_wings.honors {
     width: 130px;
     background: url('../img/medal-2017.png') no-repeat center top / 120px 118px;
     padding-top: 127px;
-    top: -46px;
-    right: -168px;
+    top: -62px;
+    right: -212px;
 } 
 .tab-1__photo_wings.history {
     width: 135px;    
     background: url('../img/fill-1.svg') no-repeat center top / 133px 90px;
     padding-top: 97px;
-    bottom: 59px;
-    right: -172px;
+    bottom: 34px;
+    right: -216px;
 }
 .tab-1__advantage {
     padding-top: 319px;
@@ -923,7 +936,8 @@ header .wrapper {
 	border: none;	
 	font: 36px/75px 'PT Sans Narrow';		
 	color: #000000;
-	padding: 0 25px;	
+	padding: 0 25px;
+	text-align: left;	
 }
 .tab-1__calculator_table .area .input i {
 	display: block;
@@ -1011,7 +1025,7 @@ header .wrapper {
 .tab-1__calculator_table  label {	
 	font: 24px/28px 'PT Sans Narrow';	
 	color: #000000;
-	text-align: center;
+	text-align: left;
 	display: block;
 	height: 28px;
 	vertical-align: middle;
@@ -1087,19 +1101,19 @@ header .wrapper {
     width: 224px;
     height: 77px;
     position: relative;
-    background-color: #ffffff;
+    background-color: transparent;
     border: solid 1px #c8c8c8;
 }
 .tab-1__calculator_second-form .input input {
     width: 100%;
     height: 75px;
     object-fit: contain;
-    background-color: #ffffff;
+    background-color: transparent;
     border: none;
-    font: 36px/75px 'PT Sans Narrow';
+    font: bold 36px/75px 'PT Sans Narrow';
     color: #000000;
     padding: 0 25px;
-    text-align: center; 
+    text-align: center;     
 }
 .tab-1__calculator_second-total {
     list-style: none;
@@ -1151,14 +1165,14 @@ header .wrapper {
     width: 79px;
     height: 77px;
     position: relative;
-    background-color: #ffffff;
-    border: solid 1px #c8c8c8;
+    background-color: transparent;
+    border: none;
 }
 .choice-volume > li .input input {
     width: 100%;
     height: 75px;
     object-fit: contain;
-    background-color: #ffffff;
+    background-color: transparent;
     border: none;
     font: 36px/75px 'PT Sans Narrow';
     color: #00bffb;
@@ -1255,6 +1269,12 @@ header .wrapper {
     position: absolute;
     left: 0px;
     bottom: -10px;
+}
+.tab-1__recommen_table-descr {
+	margin-top: 81px;
+	padding-right: 50px;
+	font: 20px/24px 'PT Sans Narrow';
+	color: #646464;
 }
 .pdf-link {
 	margin-top: 81px;
@@ -1623,3 +1643,40 @@ footer h2 b {
 }
 
 
+/* ==========================================================================
+                                MODAL classes
+   ========================================================================== */
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(1, 15, 21, 0.7);
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    text-align: center;
+    padding: 20px;
+    z-index: 20;
+    display: none;
+}
+.modal::before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -0.05em;
+}
+.modal__wrapper {
+    
+    
+    font-size: 30px;
+    display: inline-block;
+    
+    box-shadow: 0 0px 32px 0 rgba(1, 15, 21, 0.2);
+}
+.modal__wrapper iframe {
+    width: 854px!important;
+    height: 480px!important;
+}

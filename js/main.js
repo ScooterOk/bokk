@@ -33,7 +33,7 @@
 				dots : false,
 				appendDots : $('.top__slider_list-dots'),
 				autoplay : true,
-				autoplaySpeed : 5000
+				autoplaySpeed : 10000
 			});
 			$('.bottom__slider_list').slick({
 				dots : true,
@@ -47,8 +47,8 @@
 					if(!$('header').hasClass('scroll')){
 						$('header').addClass('scroll');
 						TweenMax.to('header', 0.2, {css : {height : '80px'}, ease: Power2.easeOut});
-						TweenMax.to('.header__logo', 0.15, {scale : 0.7, y : -15, ease: Power2.easeOut});
-						TweenMax.to('.header__langs', 0.15, {y : -12, ease: Power2.easeOut});
+						TweenMax.to('.header__logo', 0.15, {scale : 0.7, y : -16, ease: Power2.easeOut});
+						TweenMax.to('.header__langs', 0.15, {y : -14, ease: Power2.easeOut});
 					}
 				}else{
 					$('header').removeClass('scroll');
@@ -214,47 +214,60 @@
 				}});				
 			});			
 		},
+		/* ==========================================================================
+   										ANIMATIONS
+   			========================================================================== */
 		animation : {
 			start : function(){
 				$('body').on('mousewheel', function(){					
 					return false;
+				});								
+				$('#noscroll').on('touchstart', function(e){
+					e.preventDefault();
 				});
+				$('#noscroll').on('touchmove', function(e){
+					e.preventDefault();
+				});								
 				TweenMax.set('.header__langs', {x:app.computed.langsMiddle().x, y:app.computed.langsMiddle().y});
 				TweenMax.set('.header__logo', {x:app.computed.logoMiddle().x, y:app.computed.logoMiddle().y, scale : 0, opacity : 1});
 				TweenMax.set('#header__logo_img .st0, #header__logo_img .st1, #header__logo_img .st2, #header__logo_img .st3', {opacity : 0});
-				TweenMax.to('.header__logo', 0.4, {scale : 1, ease: Back.easeOut.config(2), onComplete : function(){					
-					TweenMax.staggerFromTo(['#header__logo_img .st0', ' #header__logo_img .st1', '#header__logo_img .st2', '#header__logo_img .st3'], 0.3, {x : 100, y : -100, opacity : 0}, {x : 0, y : 0, opacity : 1, ease: Power2.easeInOut}, 0.15);
+				TweenMax.to('.header__logo', 0.6, {scale : 1, ease: Back.easeOut.config(2), onComplete : function(){					
+					TweenMax.staggerFromTo(['#header__logo_img .st0', ' #header__logo_img .st1', '#header__logo_img .st2', '#header__logo_img .st3'], 0.4, {x : 100, y : -100, opacity : 0}, {x : 0, y : 0, opacity : 1, ease: Power2.easeInOut}, 0.15);
 				}});				
-				TweenMax.to('.header__logo', 0.7, {x : 0, ease: Power3.easeInOut, delay : 1.2, onComplete : function(){
-					TweenMax.to('.header__logo', 0.5, {y : 0, ease: Power3.easeInOut});
+				TweenMax.to('.header__logo', 0.9, {x : 0, ease: Power3.easeInOut, delay : 1.4, onComplete : function(){
+					TweenMax.to('.header__logo', 0.9, {y : 0, ease: Power3.easeInOut});
 				}});				
-				TweenMax.to('.header__langs', 0.7, {x : 0, opacity : 1, ease: Power3.easeInOut, delay : 1.2, onComplete : function(){
-					TweenMax.to('.header__langs', 0.5, {y : 0, ease: Power3.easeInOut});					
-					TweenMax.fromTo('.top__slider', 0.4, {opacity : 0, y : '100%'}, {opacity : 1, y : '0%', ease: Power2.easeInOut, delay : 0.5, onComplete : function(){
+				TweenMax.to('.header__langs', 0.9, {x : 0, opacity : 1, ease: Power3.easeInOut, delay : 1.4, onComplete : function(){
+					TweenMax.to('.header__langs', 0.9, {y : 0, ease: Power3.easeInOut});					
+					TweenMax.fromTo('.top__slider', 2, {opacity : 0, y : 70}, {opacity : 1, y : 0, ease: Power2.easeInOut, delay : 0.5, onComplete : function(){
+						
+					}});
+					TweenMax.fromTo('.top__slider .slick-prev, .top__slider .slick-next', 0.4, {opacity : 0}, {opacity : 1, delay : 0.6});					
+					setTimeout(function(){
 						$('body').off('mousewheel');
+						$('#noscroll').remove();
 						if(app.computed.mainTabsShow()){
 							app.animation.mainTabs();
 						}
-					}});
-					TweenMax.fromTo('.top__slider .slick-prev, .top__slider .slick-next', 0.4, {opacity : 0}, {opacity : 1, delay : 0.6});					
+					}, 1500)
 				}});
 			},
 			mainTabs : function(){
 				TweenMax.set('.main__tabs_roller', {opacity : 1});
 				var valik = TweenMax.to('.main__tabs_roller-valik', 0.25, {css:{backgroundPosition :"-1638px 0px"}, ease:SteppedEase.config(6), repeat:-1});
-				TweenMax.fromTo('.main__tabs_roller', 2, {css:{width : '0'}}, {css:{width : app.computed.valikWidth()}});
+				TweenMax.fromTo('.main__tabs_roller', 2.5, {css:{width : '0'}}, {css:{width : app.computed.valikWidth()}});
 				TweenMax.fromTo('.main__tabs_ava', 1, {opacity : 0}, {opacity : 1, delay : 0.5});
-				TweenMax.fromTo('.main__tabs_list', 1, {opacity : 0}, {opacity : 1, delay : 0.9});
-				TweenMax.fromTo('.main__tabs_title', 1, {opacity : 0}, {opacity : 1, delay : 1.3});				
-				TweenMax.fromTo('.main__tabs_calc', 1, {opacity : 0}, {opacity : 1, delay : 1.5});
+				TweenMax.fromTo('.main__tabs_list', 1, {opacity : 0}, {opacity : 1, delay : 1.1});
+				TweenMax.fromTo('.main__tabs_title', 1, {opacity : 0}, {opacity : 1, delay : 1.5});				
+				TweenMax.fromTo('.main__tabs_calc', 1, {opacity : 0}, {opacity : 1, delay : 2});
 				setTimeout(function(){
 					valik.pause();
 				}, 1900)
 			},
 			tab1Use : function(){
 				TweenMax.set('.tab-1__use-left, .tab-1__use-right', {opacity : 1});
-				TweenMax.fromTo('.tab-1__use-left h2 span', 1.5, {opacity : 0, x : -100}, {opacity : 1, x : 0});
-				TweenMax.fromTo('.tab-1__use-left h2 b', 1.5, {opacity : 0, x : 100}, {opacity : 1, x : 0});
+				TweenMax.fromTo('.tab-1__use-left h2 span', 1, {opacity : 0, x : -100}, {opacity : 1, x : 0});
+				TweenMax.fromTo('.tab-1__use-left h2 b', 1, {opacity : 0, x : 100}, {opacity : 1, x : 0});
 				TweenMax.fromTo('.tab-1__descr', 1.5, {opacity : 0, y : 50}, {opacity : 1, y : 0, delay : 0});
 				TweenMax.fromTo('.tab-1__use-right', 2, {opacity : 0, y : -70}, {opacity : 1, y : 0});
 			},
@@ -263,11 +276,11 @@
 				TweenMax.set('.tab-1__photo_wings', {scale : 0});
 				TweenMax.set('.tab-1__photo', {opacity : 1});				
 				TweenMax.to('.tab-1__photo img', 2, {opacity : 1});
-				TweenMax.fromTo('.tab-1__photo_circle', 1, {opacity : 0, rotation : -360}, {opacity : 1, rotation : 0, delay : 0.3});
+				TweenMax.fromTo('.tab-1__photo_circle', 1.5, {opacity : 0, rotation : -360}, {opacity : 1, rotation : 0, delay : 0.4});
 				if($('header').width() > 935){
-					TweenMax.staggerTo(['.tab-1__photo_wings.country', '.tab-1__photo_wings.honors', '.tab-1__photo_wings.history', '.tab-1__photo_wings.iso'], 0.2, {scale : 1, delay : 1, ease: Back.easeOut.config(1.8)}, 0.25);					
+					TweenMax.staggerTo(['.tab-1__photo_wings.country', '.tab-1__photo_wings.honors', '.tab-1__photo_wings.history', '.tab-1__photo_wings.iso'], 0.5, {scale : 1, delay : 1, ease: Back.easeOut.config(1.8)}, 0.5);
 				}else{
-					TweenMax.staggerTo(['.tab-1__photo_wings.country', '.tab-1__photo_wings.honors', '.tab-1__photo_wings.iso', '.tab-1__photo_wings.history'], 0.2, {scale : 1, delay : 1, ease: Back.easeOut.config(1.8)}, 0.25);					
+					TweenMax.staggerTo(['.tab-1__photo_wings.country', '.tab-1__photo_wings.honors', '.tab-1__photo_wings.iso', '.tab-1__photo_wings.history'], 0.5, {scale : 1, delay : 1, ease: Back.easeOut.config(1.8)}, 0.5);
 				}
 				
 				
@@ -275,8 +288,8 @@
 			tab1AdvantageTitle : function(){				
 				TweenMax.set('.tab-1__advantage_table', {opacity : 0});
 				TweenMax.set('.tab-1__advantage', {opacity : 1});
-				TweenMax.fromTo('.tab-1__advantage h2 span', 1.5, {opacity : 0, y : -25}, {opacity : 1, y : 0});
-				TweenMax.fromTo('.tab-1__advantage h2 b', 1.5, {opacity : 0, y : 50}, {opacity : 1, y : 0});
+				TweenMax.fromTo('.tab-1__advantage h2 span', 1, {opacity : 0, y : -25}, {opacity : 1, y : 0});
+				TweenMax.fromTo('.tab-1__advantage h2 b', 1, {opacity : 0, y : 50}, {opacity : 1, y : 0});
 				
 			},
 			tab1AdvantageTable1 : function(){
@@ -297,32 +310,33 @@
 			tab1Recommen1 : function(){
 				TweenMax.set($('.tab-1__recommen_table'), {opacity : 0});
 				TweenMax.set($('.tab-1__recommen, .tab-1__recommen_table.uno'), {opacity : 1});				
-				TweenMax.fromTo('.tab-1__recommen_table.uno h2 span', 1.5, {opacity : 0, x : -100}, {opacity : 1, x : 0});
-				TweenMax.fromTo('.tab-1__recommen_table.uno h2 b', 1.5, {opacity : 0, x : 100}, {opacity : 1, x : 0});				
+				TweenMax.fromTo('.tab-1__recommen_table.uno h2 span', 1, {opacity : 0, x : -100}, {opacity : 1, x : 0});
+				TweenMax.fromTo('.tab-1__recommen_table.uno h2 b', 1, {opacity : 0, x : 100}, {opacity : 1, x : 0});				
+				TweenMax.fromTo('.tab-1__recommen_table .tab-1__recommen_table-descr', 1.5, {opacity : 0, y : 50}, {opacity : 1, y : 0, delay : 0});
 				TweenMax.fromTo('.tab-1__recommen_table.uno .right', 2, {opacity : 0, y : -70}, {opacity : 1, y : 0});
 			},
 			tab1Recommen2 : function(){								
 				TweenMax.set($('.tab-1__recommen_table.dos'), {opacity : 1});				
-				TweenMax.fromTo('.tab-1__recommen_table.dos h2 span', 1.5, {opacity : 0, x : 100}, {opacity : 1, x : 0});
-				TweenMax.fromTo('.tab-1__recommen_table.dos h2 b', 1.5, {opacity : 0, x : -100}, {opacity : 1, x : 0});				
+				TweenMax.fromTo('.tab-1__recommen_table.dos h2 span', 1, {opacity : 0, x : 100}, {opacity : 1, x : 0});
+				TweenMax.fromTo('.tab-1__recommen_table.dos h2 b', 1, {opacity : 0, x : -100}, {opacity : 1, x : 0});				
 				TweenMax.fromTo('.tab-1__recommen_table.dos .pdf-link', 1.5, {opacity : 0, y : 50}, {opacity : 1, y : 0, delay : 0});
 				TweenMax.fromTo('.tab-1__recommen_table.dos .right', 2, {opacity : 0, y : 70}, {opacity : 1, y : 0});
 			},
 			tab1ExpertsTitle : function(){
 				TweenMax.set('.tab-1__experts .wrapper > h2', {opacity : 1});
-				TweenMax.fromTo('.tab-1__experts .wrapper > h2 span', 1.5, {opacity : 0, y : -25}, {opacity : 1, y : 0});
-				TweenMax.fromTo('.tab-1__experts .wrapper > h2 b', 1.5, {opacity : 0, y : 50}, {opacity : 1, y : 0});
+				TweenMax.fromTo('.tab-1__experts .wrapper > h2 span', 1, {opacity : 0, y : -25}, {opacity : 1, y : 0});
+				TweenMax.fromTo('.tab-1__experts .wrapper > h2 b', 1, {opacity : 0, y : 50}, {opacity : 1, y : 0});
 			},
 			tab2Info : function(){
 				TweenMax.set('.main__tab-2_info', {opacity : 1});
-				TweenMax.fromTo('.main__tab-2_info h2 span', 1.5, {opacity : 0, x : -100}, {opacity : 1, x : 0});
-				TweenMax.fromTo('.main__tab-2_info h2 b', 1.5, {opacity : 0, x : 100}, {opacity : 1, x : 0});
+				TweenMax.fromTo('.main__tab-2_info h2 span', 1, {opacity : 0, x : -100}, {opacity : 1, x : 0});
+				TweenMax.fromTo('.main__tab-2_info h2 b', 1, {opacity : 0, x : 100}, {opacity : 1, x : 0});
 				TweenMax.fromTo('.main__tab-2_info_text', 1.5, {opacity : 0, y : 50}, {opacity : 1, y : 0, delay : 0});
 			},
 			footer : function(){
 				TweenMax.set('footer h2, .footer__text', {opacity : 1});
-				TweenMax.fromTo('footer h2 span', 1.5, {opacity : 0, x : -100}, {opacity : 1, x : 0});
-				TweenMax.fromTo('footer h2 b', 1.5, {opacity : 0, x : 100}, {opacity : 1, x : 0});
+				TweenMax.fromTo('footer h2 span', 1, {opacity : 0, x : -100}, {opacity : 1, x : 0});
+				TweenMax.fromTo('footer h2 b', 1, {opacity : 0, x : 100}, {opacity : 1, x : 0});
 				TweenMax.fromTo('.footer__text', 1.5, {opacity : 0, y : 50}, {opacity : 1, y : 0, delay : 0});
 			}
 		},
