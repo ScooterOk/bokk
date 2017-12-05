@@ -35,14 +35,16 @@
 		init : function(){						
 			app.animation.start();
 			app.events();
+			/*
 			$('.top__slider_list').on('init', function(event, slick, direction){			  	
 			  	$(slick.$slides).map(function(i, el){
 			  		var url = el.getAttribute('data-prev');
 			  		$(slick.$dots).find('li')[i].style.backgroundImage = 'url("'+url+'")';
 			  	});			  
 			});
+			*/
 			$('.top__slider_list').slick({
-				dots : true,
+				dots : false,
 				appendDots : $('.top__slider_list-dots'),
 				autoplay : true,
 				autoplaySpeed : 10000
@@ -131,17 +133,21 @@
 			});
 			$('.tooltip').mouseenter(function(e) {
 				if(!$(e.target).hasClass('tooltip__descr') && $(this).find('.tooltip__descr').is(':hidden')){
-					$('.tooltip__descr').hide();
-					$(this).find('.tooltip__descr').fadeIn(150);
+					var left = -app.computed.tooltipPos(e.currentTarget);
+					TweenMax.set($(this).find('.tooltip__descr'), {x : left});
+					$('.tooltip__descr').hide();					
+					$(this).find('.tooltip__descr, .tooltip__tri').fadeIn(150);
 				}				
 				
 			});
 			$('.tooltip').mouseleave(function(e) {				
-					$('.tooltip__descr').hide();					
+					TweenMax.set($(this).find('.tooltip__descr'), {x : 0});
+					$(this).find('.tooltip__descr, .tooltip__tri').hide();
 				
 			});
 			$('.tooltip .tooltip__close').click(function(e) {
-				$(this).closest('.tooltip').find('.tooltip__descr').fadeOut(150);
+				$(this).closest('.tooltip').find('.tooltip__descr, .tooltip__tri').fadeOut(150);
+				TweenMax.set($(this).closest('.tooltip').find('.tooltip__descr, .tooltip__tri'), {x : 0});
 				e.preventDefault();
 			});
 			$('.main__tabs_list li').hover(function(e){
@@ -455,6 +461,18 @@
 			},
 			valikResize : function(){				
 				TweenMax.to('.main__tabs_roller', 0.3, {css:{width : app.computed.valikWidth()}});
+			},
+			tooltipPos : function(target){
+				var ww, tw, tp;
+				ww = $(window).width();
+				tw = $(target).find('.tooltip__descr').outerWidth();
+				tp = $(target).offset().left;
+				if((tp+tw) > ww){
+					return (tp+tw) - ww + 5;
+				}else{
+					return (tw/4);
+				}
+				console.log(ww, tw, tp);
 			}
 		}
 	}	
