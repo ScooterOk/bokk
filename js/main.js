@@ -254,21 +254,24 @@
 				TweenMax.to('.header__logo', 0.4, {scale : 1, ease: Back.easeOut.config(2), onComplete : function(){
 					TweenMax.staggerFromTo(['#header__logo_img .st0', ' #header__logo_img .st1', '#header__logo_img .st2', '#header__logo_img .st3'], 0.3, {x : 100, y : -100, opacity : 0}, {x : 0, y : 0, opacity : 1, delay : 0.3, ease: Power2.easeInOut, onComplete : function(){
 						TweenMax.to('.header__logo', 0.7, {opacity : 0, delay : 0.9, onComplete : function(){
-							TweenMax.set('.header__logo', {scale : 1, y : 0, x : 0});
-							TweenMax.fromTo('.header__logo, .header__langs', 1.8, {scale : 1, opacity : 0, y : -30, x : 0}, {scale : 1, opacity : 1, y : 0, x : 0, ease: Power2.easeInOut});
-							TweenMax.fromTo('.top__slider', 1.8, {opacity : 0, y : 70}, {opacity : 1, y : 0, ease: Power2.easeInOut});
-							TweenMax.fromTo('.top__slider .slick-prev, .top__slider .slick-next', 0.4, {opacity : 0}, {opacity : 1, delay : 1});
-							setTimeout(function(){
-								$('body').off('mousewheel');
-								$('#noscroll').remove();
-								if(app.computed.mainTabsShow()){
-									app.animation.mainTabs();
-								}
-							}, 1200)
-						}});
-						TweenMax.to('.header__logo', 2, {scale : 0, delay : 0.9});						
+							
+						}});						
+						TweenMax.to('.header__logo', 0.7, {scale : 0, delay : 0.9});						
 					}}, 0.15);
-				}});								
+				}});
+				setTimeout(function(){
+					TweenMax.set('.header__logo', {scale : 1, y : 0, x : 0});							
+					TweenMax.fromTo('.header__logo, .header__langs', 1.8, {scale : 1, opacity : 0, y : -30, x : 0}, {scale : 1, opacity : 1, y : 0, x : 0, ease: Power2.easeInOut});
+					TweenMax.fromTo('.top__slider', 1.8, {opacity : 0, y : 70}, {opacity : 1, y : 0, ease: Power2.easeInOut});
+					TweenMax.fromTo('.top__slider .slick-prev, .top__slider .slick-next', 0.4, {opacity : 0}, {opacity : 1, delay : 1});							
+				}, 2500);
+				setTimeout(function(){
+					$('body').off('mousewheel');
+					$('#noscroll').remove();
+					if(app.computed.mainTabsShow()){
+						app.animation.mainTabs();
+					}
+				}, 3200);
 			},
 			mainTabs : function(){
 				TweenMax.set('.main__tabs_roller', {opacity : 1});
@@ -294,9 +297,9 @@
 				TweenMax.set('.tab-1__photo_wings', {scale : 0});
 				TweenMax.set('.tab-1__photo', {opacity : 1});				
 				TweenMax.to('.tab-1__photo img', 2, {opacity : 1});
-				TweenMax.fromTo('.tab-1__photo_circle', 1.5, {opacity : 0, rotation : -360}, {opacity : 1, rotation : 0, delay : 0.4});
+				TweenMax.fromTo('.tab-1__photo_circle', 1.2, {opacity : 0, rotation : -360}, {opacity : 1, rotation : 0, delay : 0.4});
 				if($('header').width() > 935){
-					TweenMax.staggerTo(['.tab-1__photo_wings.country', '.tab-1__photo_wings.honors', '.tab-1__photo_wings.history', '.tab-1__photo_wings.iso'], 0.5, {scale : 1, delay : 1, ease: Back.easeOut.config(1.8)}, 0.5);
+					TweenMax.staggerTo(['.tab-1__photo_wings.country', '.tab-1__photo_wings.honors', '.tab-1__photo_wings.history', '.tab-1__photo_wings.iso'], 0.25, {scale : 1, delay : 1, ease: Back.easeOut.config(1.8)}, 0.3);
 				}else{
 					TweenMax.staggerTo(['.tab-1__photo_wings.country', '.tab-1__photo_wings.honors', '.tab-1__photo_wings.iso', '.tab-1__photo_wings.history'], 0.5, {scale : 1, ease: Back.easeOut.config(1.8)}, 0.5);
 				}
