@@ -278,6 +278,8 @@ textarea {
    Start styles
    ========================================================================== */
 .header__logo,
+.header__scroll,
+.header__calk_but,
 .top__slider,
 .header__langs,
 .top__slider .slick-prev,
@@ -319,9 +321,9 @@ header .wrapper {
 .header__logo {
     width: 291px;
     height: 150px;
-    float: left;    
-    margin-left: -47px;
-    margin-top: -20px;
+    position: absolute;
+    left: -47px;
+    top: -20px;
 }
 .header__logo a {
     display: inline-block;
@@ -330,11 +332,25 @@ header .wrapper {
     width: 291px;
     height: 150px;
 }
+.header__scroll {
+	position: absolute;
+	left: 0;
+	top: 5px;
+	font: bold 24px/1 'PT Sans Narrow';	
+	color: #000000;
+	cursor: pointer;
+}
+.header__scroll img {
+	width: 82px;	
+	height: 68px;
+}
 .header__langs {
     list-style: none;
     padding: 0;
-    margin: 42px 0 0 0;
-    float: right;
+    margin: 0;
+    position: absolute;
+    right: 0;
+    top: 42px;
 }
 .header__langs li {
     float: left;      
@@ -369,8 +385,8 @@ header .wrapper {
     color: 000
 }
 .header__calk_but {
-    width: 0;
-    height: 48px;    
+    width: 224px;
+  	height: 48px;
     background-color: #d0021b;
     font: bold 24px/48px 'PT Sans Narrow';      
     text-align: center;
@@ -378,8 +394,9 @@ header .wrapper {
     cursor: pointer;
     float: right;
     overflow: hidden;
-    margin: 16px 0 0 0;  
-    transition: background-color 200ms ease;
+    position: absolute;
+    top: 16px;
+    right: 0;    
 }
 .header__calk_but:hover {
     background-color: #e2344a;    
