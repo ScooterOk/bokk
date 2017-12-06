@@ -248,16 +248,15 @@
 				});
 				$('#noscroll').on('touchmove', function(e){
 					e.preventDefault();
-				});								
-				//TweenMax.set('.header__langs', {x:app.computed.langsMiddle().x, y:app.computed.langsMiddle().y});
+				});												
 				TweenMax.set('.header__logo', {x:app.computed.logoMiddle().x, y:app.computed.logoMiddle().y, scale : 0, opacity : 1});
-				TweenMax.set('#header__logo_img .st0, #header__logo_img .st1, #header__logo_img .st2, #header__logo_img .st3', {opacity : 0});				
-				TweenMax.to('.header__logo', 0.6, {scale : 1, ease: Back.easeOut.config(2), onComplete : function(){
-					TweenMax.staggerFromTo(['#header__logo_img .st0', ' #header__logo_img .st1', '#header__logo_img .st2', '#header__logo_img .st3'], 0.4, {x : 100, y : -100, opacity : 0}, {x : 0, y : 0, opacity : 1, delay : 0.3, ease: Power2.easeInOut, onComplete : function(){
-						TweenMax.to('.header__logo', 0.9, {opacity : 0, delay : 1.3, onComplete : function(){
+				TweenMax.set('#header__logo_img .st0, #header__logo_img .st1, #header__logo_img .st2, #header__logo_img .st3', {opacity : 0});
+				TweenMax.to('.header__logo', 0.4, {scale : 1, ease: Back.easeOut.config(2), onComplete : function(){
+					TweenMax.staggerFromTo(['#header__logo_img .st0', ' #header__logo_img .st1', '#header__logo_img .st2', '#header__logo_img .st3'], 0.3, {x : 100, y : -100, opacity : 0}, {x : 0, y : 0, opacity : 1, delay : 0.3, ease: Power2.easeInOut, onComplete : function(){
+						TweenMax.to('.header__logo', 0.7, {opacity : 0, delay : 0.9, onComplete : function(){
 							TweenMax.set('.header__logo', {scale : 1, y : 0, x : 0});
-							TweenMax.fromTo('.header__logo, .header__langs', 2, {scale : 1, opacity : 0, y : -30, x : 0}, {scale : 1, opacity : 1, y : 0, x : 0, ease: Power2.easeInOut});
-							TweenMax.fromTo('.top__slider', 2, {opacity : 0, y : 70}, {opacity : 1, y : 0, ease: Power2.easeInOut});
+							TweenMax.fromTo('.header__logo, .header__langs', 1.8, {scale : 1, opacity : 0, y : -30, x : 0}, {scale : 1, opacity : 1, y : 0, x : 0, ease: Power2.easeInOut});
+							TweenMax.fromTo('.top__slider', 1.8, {opacity : 0, y : 70}, {opacity : 1, y : 0, ease: Power2.easeInOut});
 							TweenMax.fromTo('.top__slider .slick-prev, .top__slider .slick-next', 0.4, {opacity : 0}, {opacity : 1, delay : 1});
 							setTimeout(function(){
 								$('body').off('mousewheel');
@@ -265,18 +264,11 @@
 								if(app.computed.mainTabsShow()){
 									app.animation.mainTabs();
 								}
-							}, 1500)
+							}, 1200)
 						}});
-						TweenMax.to('.header__logo', 3, {scale : 0, delay : 1.3});						
+						TweenMax.to('.header__logo', 2, {scale : 0, delay : 0.9});						
 					}}, 0.15);
-				}});				
-				return false;				
-				TweenMax.to('.header__langs', 0.9, {x : 0, opacity : 1, ease: Power3.easeInOut, delay : 1.4, onComplete : function(){
-					TweenMax.to('.header__langs', 0.9, {y : 0, ease: Power3.easeInOut});					
-					TweenMax.fromTo('.top__slider', 2, {opacity : 0, y : 70}, {opacity : 1, y : 0, ease: Power2.easeInOut, delay : 0.5});
-					TweenMax.fromTo('.top__slider .slick-prev, .top__slider .slick-next', 0.4, {opacity : 0}, {opacity : 1, delay : 0.6});					
-					
-				}});
+				}});								
 			},
 			mainTabs : function(){
 				TweenMax.set('.main__tabs_roller', {opacity : 1});
