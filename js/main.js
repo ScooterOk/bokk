@@ -119,11 +119,22 @@
 				if(current)return false;				
 			});
 			$('.go-calk').click(function(e) {
-				var y = $('.tab-1__calculator').offset().top - $('header').height();
-				var body = $("html, body");
-				body.stop().animate({scrollTop:y}, 500, 'swing');
-
-				$(document).scrollTop(y);
+				console.log(app.data.tab);				
+				if(app.data.tab == 1){
+					var y = $('.tab-1__calculator').offset().top - $('header').height();
+					var body = $("html, body");
+					body.stop().animate({scrollTop:y}, 500, 'swing');
+					$(document).scrollTop(y);
+				}else{
+					$('.main__tabs_list li[data-tab="1"]').click();
+					setTimeout(function(){
+						var y = $('.tab-1__calculator').offset().top - $('header').height();
+						var body = $("html, body");
+						body.stop().animate({scrollTop:y}, 500, 'swing');
+						$(document).scrollTop(y);
+					}, 600);
+				}
+				
 			});
 			$('.header__scroll').click(function(e) {				
 				var body = $("html, body");

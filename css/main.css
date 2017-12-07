@@ -351,6 +351,7 @@ header .wrapper {
     position: absolute;
     right: 0;
     top: 42px;
+    z-index: 1;
 }
 .header__langs li {
     float: left;      
@@ -396,7 +397,8 @@ header .wrapper {
     overflow: hidden;
     position: absolute;
     top: 16px;
-    right: 0;    
+    right: 0;
+    z-index: 2;
 }
 .header__calk_but:hover {
     background-color: #e2344a;    
