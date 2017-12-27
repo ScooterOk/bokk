@@ -445,25 +445,55 @@
 				app.computed.calkTotal(res);				
 			},
 			calkTotal : function(res){
+				var summ = 0;
 				var total = {
 					'14' : 0,
 					'7' : 0,
 					'4.2' : 0,
 					'1.4' : 0
 				};				
-				if(res/14 > 1){
-					n = Number((res/14).toFixed(1));
+				if(res/14 >= 1){
+					n = Math.floor(res/14);
 					total['14'] = n;					
 					res = res - (14*n);
-					console.log(res);
+					summ = n*1013;
 				}				
-				console.log(total);
-				return false;
-				if(res/7 > 1){
-					n = Number((res/7).toFixed(0));
+				if(res/7 >= 1){
+					n = Math.floor(res/7);
 					total['7'] = n;
 					res = res - (7*n);
+					summ += n*538;
 				}				
+				if(res/4.2 >= 1){
+					n = Math.floor(res/4.2);
+					total['4.2'] = n;
+					res = res - (4.2*n);
+					summ += n*388;				
+				}				
+				if(res/1.4 >= 1){					
+					n = Math.floor(res/1.4);
+					total['1.4'] = n;
+					res = res - (1.4*n);
+					summ += n*137;
+					
+				}
+
+				if(res > 0){
+					total['1.4'] += 1;					
+					summ += 137;
+				}
+				for(var i in total){
+					if(total[i] == 0){
+						$('input[data-volume="'+i+'"]').val('');
+					}else{
+						$('input[data-volume="'+i+'"]').val(total[i]+' шт');
+					}
+				};
+				$('#summ b').html(summ+' грн');
+				$('#summ span').html((summ/Number(app.data.calkAria)).toFixed(2)+' грн за 1 м/кв');
+				console.log(summ);
+				console.log(total);
+				console.log('---------------------------------------------------');
 
 			},
 			logoMiddle : function(){
