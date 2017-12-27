@@ -280,7 +280,7 @@
                                 <li class="volume">
                                     <label>Объем</label>
                                     <div class="input">
-                                        <input type="text" readonly value="16 кг" />
+                                        <input type="text" id="volume-result" readonly value="" />
                                     </div>
                                 </li>
                             </ul>
@@ -300,25 +300,25 @@
                                         <li>
                                             <div class="choice-volume_value">14 кг</div>
                                             <div class="input">
-                                                <input type="text" value="1 шт" readonly />
+                                                <input type="text" data-volume="14" value="1 шт" readonly />
                                             </div>
                                         </li>
                                         <li>
                                             <div class="choice-volume_value">7 кг</div>
                                             <div class="input">
-                                                <input type="text" value="" readonly />
+                                                <input type="text" data-volume="7" value="" readonly />
                                             </div>
                                         </li>
                                         <li>
                                             <div class="choice-volume_value">4.2 кг</div>
                                             <div class="input">
-                                                <input type="text" value="" readonly />
+                                                <input type="text" data-volume="4.2" value="" readonly />
                                             </div>
                                         </li>
                                         <li>
                                             <div class="choice-volume_value">1.4 кг</div>
                                             <div class="input">
-                                                <input type="text" value="2 шт" readonly />
+                                                <input type="text" data-volume="1.4" value="2 шт" readonly />
                                             </div>
                                         </li>
                                     </ul>                                    
@@ -326,7 +326,7 @@
                                 <li class="offer">
                                     <label><span>Лучшее предложение для Вас:</span></label>
                                     <div class="total_value">
-                                        <div class="summ">
+                                        <div class="summ" id="summ">
                                             <b>19 255 грн</b>
                                             <span>16,6 грн за 1 м/кв</span>
                                         </div>

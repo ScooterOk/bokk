@@ -26,8 +26,9 @@
 				footer : false
 			},
 			tab : 1,
-			calkAria : 0,
-			calkLayers : 1
+			calkAria : 1,
+			calkLayers : 1,
+			calkTotal : 0
 		},
 		/* ==========================================================================
 										INITIALIZATION
@@ -118,8 +119,7 @@
 				var current = $(this).closest('li').hasClass('current');
 				if(current)return false;				
 			});
-			$('.go-calk').click(function(e) {
-				console.log(app.data.tab);				
+			$('.go-calk').click(function(e) {				
 				if(app.data.tab == 1){
 					var y = $('.tab-1__calculator').offset().top - $('header').height();
 					var body = $("html, body");
@@ -213,6 +213,13 @@
 					app.data.calkAria = $(this).val();
 				}
 				$('.aria-select input').val(app.data.calkAria);
+				app.computed.calkResult();
+			});
+			$('.aria-select input').keyup(function(e){
+				if($(this).val()){
+					app.data.calkAria = $(this).val();
+				}
+				app.computed.calkResult();
 			});
 			$('.aria-select i').click(function(e){
 				var val = Number($('.aria-select input').val());
@@ -223,6 +230,7 @@
 				}
 				app.data.calkAria = val;
 				$('.aria-select input').val(val);
+				app.computed.calkResult();
 			});
 			$('.layers-selector li').click(function(e) {
 				$('.layers-selector li').removeClass('current');
@@ -237,8 +245,10 @@
 						$('.layers-selector li[data-value="1"]').addClass('current');
 					}});
 				}
+				app.computed.calkResult();
 			});
 			$('.tab-1__calculator_first-form-button').click(function(e){
+				app.computed.calkResult();
 				TweenMax.to('.tab-1__calculator_first', 0.3, {x : '-100%', opacity : 0, ease: Power3.easeIn, onComplete : function(){
 					$('.tab-1__calculator_first').hide();
 					$('.tab-1__calculator_second').show();
@@ -424,6 +434,38 @@
    										COMPUTED
    			========================================================================== */
 		computed : {
+			calkResult : function(){
+				var res;
+				if(app.data.calkLayers == 1){
+					res = Number((app.data.calkAria * 0.17).toFixed(1));
+				}else if(app.data.calkLayers == 2){
+					res = Number(((app.data.calkAria * 0.17) + (app.data.calkAria * 0.15)).toFixed(1));
+				}
+				$('#volume-result').val(res+' кг');
+				app.computed.calkTotal(res);				
+			},
+			calkTotal : function(res){
+				var total = {
+					'14' : 0,
+					'7' : 0,
+					'4.2' : 0,
+					'1.4' : 0
+				};				
+				if(res/14 > 1){
+					n = Number((res/14).toFixed(1));
+					total['14'] = n;					
+					res = res - (14*n);
+					console.log(res);
+				}				
+				console.log(total);
+				return false;
+				if(res/7 > 1){
+					n = Number((res/7).toFixed(0));
+					total['7'] = n;
+					res = res - (7*n);
+				}				
+
+			},
 			logoMiddle : function(){
 				var x, y, w, h, ww, wh;
 				w = $('.header__logo').width();
