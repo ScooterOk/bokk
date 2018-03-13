@@ -351,7 +351,7 @@
         top: 34px;
     }
     .tab-1__advantage_table.even > li .tab-1__advantage_content {        
-        width: 276px;
+        width: 370px;
         left: 138px;
         top: 78px;
     }
@@ -944,7 +944,7 @@
     }
     .tab-1__advantage_table .rtw-slider {
         width: 220px;
-        margin: 46px auto 0 auto;        
+        margin: 11px auto 0 auto;        
     }
     .tab-1__calculator {
         margin-top: 140px;
@@ -1249,7 +1249,7 @@
         color: #000000;
         background: url(../img/tel.svg) no-repeat left center / 18px 30px;
         margin: 38px auto 0 auto;
-        width: 165px;
+        width: 185px;
     }
     .footer__bottom {
         margin-bottom: 71px;

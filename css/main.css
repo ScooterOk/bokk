@@ -759,11 +759,11 @@ header .wrapper {
     left: -220px;
 }
 .tab-1__photo_wings.honors {
-    width: 130px;
+    width: 150px;
     background: url('../img/medal-2017.png') no-repeat center top / 120px 118px;
     padding-top: 127px;
     top: -62px;
-    right: -212px;
+    right: -222px;
 } 
 .tab-1__photo_wings.history {
     width: 135px;    
@@ -872,7 +872,7 @@ header .wrapper {
 }
 .tab-1__advantage_table .rtw-slider {
     width: 245px;
-    margin-top: 36px;
+    margin-top: 8px;
 }
 
 /* ==========================================================================
