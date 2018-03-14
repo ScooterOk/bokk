@@ -535,7 +535,7 @@
         width: 890px;
     }
     .bottom__slider_list .profile {
-        height: 344px;        
+        min-height: 344px;        
     }
     .bottom__slider_list .profile .profile__ava {
         width: 215px;
@@ -560,7 +560,7 @@
         margin-bottom: 8px;
     }
     .bottom__slider_list .profile .profile_name span {     
-        font: 18px/1 'PT Sans Narrow';        
+        font: 18px/22px 'PT Sans Narrow';        
     }
     .bottom__slider_list .profile .profile_name::before {             
         width: 53px;
