@@ -702,6 +702,9 @@ header .wrapper {
     position: relative;
     cursor: pointer;
 }
+.video__player img {
+    max-width: 100%;
+}
 .video__player::before {
     content: "";
     width: 100px;
