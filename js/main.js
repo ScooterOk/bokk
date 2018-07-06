@@ -415,11 +415,7 @@
 			if(st > ($('.tab-1__recommen_table.uno').offset().top - ($(window).height() - ($(window).height() / 4.5))) && !app.data.animDone.tab1Recommen1){
 				app.data.animDone.tab1Recommen1 = true;
 				app.animation.tab1Recommen1();
-			}
-			if(st > ($('.tab-1__recommen_table.dos').offset().top - ($(window).height() - ($(window).height() / 4.5))) && !app.data.animDone.tab1Recommen2){
-				app.data.animDone.tab1Recommen2 = true;
-				app.animation.tab1Recommen2();
-			}
+			}			
 			if(st > ($('.tab-1__experts .wrapper > h2').offset().top - ($(window).height() - ($(window).height() / 4.5))) && !app.data.animDone.tab1ExpertsTitle){
 				app.data.animDone.tab1ExpertsTitle = true;
 				app.animation.tab1ExpertsTitle();
