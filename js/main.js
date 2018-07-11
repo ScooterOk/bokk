@@ -360,9 +360,8 @@
 			tab1Recommen2 : function(){								
 				TweenMax.set($('.tab-1__recommen_table.dos'), {opacity : 1});				
 				TweenMax.fromTo('.tab-1__recommen_table.dos h2 span', 1, {opacity : 0, x : 100}, {opacity : 1, x : 0});
-				TweenMax.fromTo('.tab-1__recommen_table.dos h2 b', 1, {opacity : 0, x : -100}, {opacity : 1, x : 0});				
-				TweenMax.fromTo('.tab-1__recommen_table.dos .pdf-link', 1.5, {opacity : 0, y : 50}, {opacity : 1, y : 0, delay : 0});
-				TweenMax.fromTo('.tab-1__recommen_table.dos .right', 2, {opacity : 0, y : 70}, {opacity : 1, y : 0});
+				TweenMax.fromTo('.tab-1__recommen_table.dos h2 b', 1, {opacity : 0, x : -100}, {opacity : 1, x : 0});
+				TweenMax.fromTo('.tab-1__recommen_table.dos .left', 2, {opacity : 0, y : 70}, {opacity : 1, y : 0});
 			},
 			tab1ExpertsTitle : function(){
 				TweenMax.set('.tab-1__experts .wrapper > h2', {opacity : 1});
@@ -415,7 +414,11 @@
 			if(st > ($('.tab-1__recommen_table.uno').offset().top - ($(window).height() - ($(window).height() / 4.5))) && !app.data.animDone.tab1Recommen1){
 				app.data.animDone.tab1Recommen1 = true;
 				app.animation.tab1Recommen1();
-			}			
+			}
+			if(st > ($('.tab-1__recommen_table.dos').offset().top - ($(window).height() - ($(window).height() / 4.5))) && !app.data.animDone.tab1Recommen2){
+				app.data.animDone.tab1Recommen2 = true;
+				app.animation.tab1Recommen2();
+			}
 			if(st > ($('.tab-1__experts .wrapper > h2').offset().top - ($(window).height() - ($(window).height() / 4.5))) && !app.data.animDone.tab1ExpertsTitle){
 				app.data.animDone.tab1ExpertsTitle = true;
 				app.animation.tab1ExpertsTitle();

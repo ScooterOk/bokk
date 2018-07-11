@@ -425,6 +425,7 @@ header .wrapper {
 .top__slider_list li {
 	background: no-repeat center / cover;
 	height: 770px;
+    position: relative;
 }
 .top__slider .slick-prev {
     width: 32px;
@@ -1258,6 +1259,9 @@ header .wrapper {
 	display: table;
 	width: 100%;	
 }
+.tab-1__recommen_table.uno {
+    margin-bottom: 0;
+}
 .tab-1__recommen_table .left {
 	display: table-cell;
 	vertical-align: middle;	
@@ -1266,6 +1270,9 @@ header .wrapper {
 	display: table-cell;
 	vertical-align: middle;
 	width: 735px;
+}
+.tab-1__recommen_table.dos .right {
+    padding-left: 110px;
 }
 .tab-1__recommen_table h2 {
     padding: 0;
