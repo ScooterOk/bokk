@@ -127,11 +127,15 @@
     .tab-1__experts {
         margin-top: 280px;
     }
-    .tab-1__experts h2 {        
+    .tab-1__experts h2,
+    .tab-1__objects h2,
+    .tab-1__mission h2 {
         margin: 0 auto 94px auto;
         font: bold 40px/1 'PT Sans Narrow';        
     }
-    .tab-1__experts h2 b {
+    .tab-1__experts h2 b,
+    .tab-1__objects h2 b,
+    .tab-1__mission h2 b {
         font: bold 110px/1 'PT Sans Narrow';        
     }
     .bottom__slider_list .slick-prev {
@@ -168,6 +172,12 @@
     .main__tab-2_table-wrapper {
         padding: 0 112px;
         margin-top: -25px;
+    }
+    .tab-1__objects_list .objects__slider_left {
+        left: -157px;
+    }
+    .tab-1__objects_list .objects__slider_right {
+        right: -157px;
     }
 }
 
@@ -583,8 +593,7 @@
     }
     footer {
         margin-top: 190px;
-        background-color: #f5f5f5;
-        padding-top: 128px;
+        background-color: #f5f5f5;        
     }
     footer h2 {        
         font: bold 35px/1 'PT Sans Narrow';        
@@ -637,6 +646,12 @@
         margin: -32px 0 0 -32px;
         opacity: 0.7;
         transition: opacity 250ms ease;
+    }
+    .tab-1__objects_list .objects__slider_left {
+        left: -30px;
+    }
+    .tab-1__objects_list .objects__slider_right {
+        right: -30px;
     }
 
 }
@@ -1199,9 +1214,8 @@
         display: block;
     }
     footer {
-        margin-top: 120px;
-        background-color: #f5f5f5;
-        padding-top: 120px;
+        margin-top: 170px;
+        background-color: #f5f5f5;        
     }
     footer .wrapper {
         width: auto;
@@ -1233,9 +1247,9 @@
     }
     .footer__bottom_logo {
         float: none;
-        width: 149px;
-        height: 48px;
-        margin: auto;
+        width: auto;
+        height: auto;
+        text-align: center;
     }
     .footer__bottom_logo img {
         width: 149px;
@@ -1252,7 +1266,7 @@
         width: 185px;
     }
     .footer__bottom {
-        margin-bottom: 71px;
+        
     }
     .main__tab-2 {
         padding-top: 86px;
@@ -1326,5 +1340,108 @@
     }
     .tooltip .tooltip__descr .tooltip__close {
         display: block;
+    }
+    .tab-1__mission .wrapper {
+        width: auto;
+        margin: 0 15px;
+        font-size: 18px;        
+        line-height: 1.44;
+    }
+    .tab-1__mission h2 {
+        text-align: center;
+    }
+    .tab-1__mission h2 b {
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+    .tab-1__mission h2::after {
+        left: 50%;
+        transform: translate(-50%, 0);   
+    }
+    .tab-1__mission_text {
+        width: auto;
+        text-align: center;
+    }
+    .tab-1__objects .wrapper {
+        width: auto;
+    }
+    .tab-1__objects h2 {
+        text-align: center;        
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .tab-1__objects h2 span {
+        
+    }
+    .tab-1__objects h2 b {
+        white-space: nowrap;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+    .tab-1__objects_list {
+        width: 100%;
+        margin-top: 45px;
+    }
+    .objects__slider_item {
+        padding: 0;
+    }
+    .objects__slider_item img {
+        width: 100%;
+    }
+    .tab-1__objects_list::after {
+        display: none;
+    }
+    .tab-1__objects .objects__slider_info {
+        height: 48px;
+        background-color: #f5f5f5;
+        position: relative;
+        justify-content: center;
+    }
+    .tab-1__objects .objects__slider_info .title {
+        font-size: 18px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: center;
+        color: #000000;
+    }
+    .tab-1__objects .objects__slider_info .number {
+        position: absolute;
+        left: 50%;
+        bottom: -40px;
+        transform: translate(-50%, 0);
+        font-size: 18px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: center;
+        color: #00bffb;
+        margin: 0;
+    }
+    .tab-1__objects_list .objects__slider_left {
+        width: 12px;
+        height: 22px;
+        display: block;
+        background: url(../img/bottom-slider-arrow.svg) no-repeat center / 12px 22px;        
+        left: calc(35%);
+        top: auto;
+        bottom: -40px;
+    }
+    .tab-1__objects_list .objects__slider_right {
+        width: 12px;
+        height: 22px;        
+        background: url(../img/bottom-slider-arrow.svg) no-repeat center / 12px 22px;        
+        right: calc(35%);
+        top: auto;        
+        bottom:  -40px;        
+    }
+    .footer__bottom {
+        flex-direction: column;
+        height: 260px;
+        justify-content: center;
     }
 }

@@ -22,6 +22,7 @@
 				tab1Recommen1 : false,
 				tab1Recommen2 : false,
 				tab1ExpertsTitle : false,
+				tab1Objects : false,
 				tab2Info : false,
 				footer : false
 			},
@@ -254,7 +255,46 @@
 					$('.tab-1__calculator_second').show();
 					TweenMax.fromTo('.tab-1__calculator_second', 0.3, {x : '100%', opacity : 0,}, {x : '0%', opacity : 1, ease: Power3.easeIn});
 				}});				
-			});			
+			});		
+			var objectSwiper = new Swiper ('.objects__slider', {
+			    // Optional parameters			    
+			    loop: true,
+			    parallax : false,
+			    navigation: {      			
+	        		prevEl: '.objects__slider_left',
+	        		nextEl: '.objects__slider_right',
+	      		},	      		
+			    on: {
+				init: function () {					
+					var length = this.slides.length - 2;
+					console.log(this)
+					$('.objects__slider_info .number').html('1/'+length);
+					//$(this.$el).find('.roomselect__slider-pagination span.current').html('01');
+					//$(this.$el).find('.roomselect__slider-pagination span.length').html(length < 10 ? '0'+length : length);
+				},
+				slideChange : function(){
+					var length = this.slides.length - 2;
+					var name = $(this.slides[this.activeIndex]).attr('data-title');
+					var typeBlock = $(this.$el).closest('.roomselect').find('.roomselect__description_title');					
+					var slide;
+					if(this.activeIndex == 0){
+						slide = length;
+					}else if(this.activeIndex > length){
+						slide = 1;
+					}else{
+						slide = this.activeIndex;
+					}					
+					//var slide = this.activeIndex > length ? 1 : this.activeIndex;
+					//$(this.$el).find('.roomselect__slider-pagination span.current').html(slide < 10 ? '0'+slide : slide);
+					$('.objects__slider_info .number').html(slide+'/'+length);
+					TweenMax.to('.objects__slider_info .title span', 0.15, {y : '100%', onComplete : function(){															
+					$('.objects__slider_info .title span').html(name);
+						TweenMax.fromTo(this.target, 0.15, {y : '-100%'}, {y : '0%'});
+					}});										
+				}
+			}
+			  })			
+
 		},
 		/* ==========================================================================
    										ANIMATIONS
@@ -368,6 +408,12 @@
 				TweenMax.fromTo('.tab-1__experts .wrapper > h2 span', 1, {opacity : 0, y : -25}, {opacity : 1, y : 0});
 				TweenMax.fromTo('.tab-1__experts .wrapper > h2 b', 1, {opacity : 0, y : 50}, {opacity : 1, y : 0});
 			},
+			tab1Objects : function(){
+				TweenMax.set('.tab-1__objects h2', {opacity : 1});
+				TweenMax.fromTo('.tab-1__objects h2 span', 1, {opacity : 0, y : -25}, {opacity : 1, y : 0});
+				TweenMax.fromTo('.tab-1__objects h2 b', 1, {opacity : 0, y : 50}, {opacity : 1, y : 0});
+				TweenMax.fromTo('.objects__slider', 1, {opacity : 0, y : 50}, {opacity : 1, y : 0})
+			},
 			tab2Info : function(){
 				TweenMax.set('.main__tab-2_info', {opacity : 1});
 				TweenMax.fromTo('.main__tab-2_info h2 span', 1, {opacity : 0, x : -100}, {opacity : 1, x : 0});
@@ -422,6 +468,10 @@
 			if(st > ($('.tab-1__experts .wrapper > h2').offset().top - ($(window).height() - ($(window).height() / 4.5))) && !app.data.animDone.tab1ExpertsTitle){
 				app.data.animDone.tab1ExpertsTitle = true;
 				app.animation.tab1ExpertsTitle();
+			}
+			if(st > ($('.tab-1__objects').offset().top - ($(window).height() - ($(window).height() / 4.5))) && !app.data.animDone.tab1Objects){
+				app.data.animDone.tab1Objects = true;
+				app.animation.tab1Objects();
 			}
 			if(st > ($('footer').offset().top - ($(window).height() - ($(window).height() / 4.5))) && !app.data.animDone.footer){
 				app.data.animDone.footer = true;

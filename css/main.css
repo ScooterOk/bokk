@@ -296,6 +296,8 @@ textarea {
 .tab-1__recommen,
 .tab-1__experts .wrapper > h2,
 .main__tab-2_info,
+.tab-1__objects h2,
+.objects__slider,
 footer h2,
 .footer__text
  {
@@ -1505,6 +1507,154 @@ header .wrapper {
     display: none;
 }
 
+.tab-1__mission {
+    background-color: #f5f5f5;
+    margin-top: 210px;
+    padding: 158px 0;
+}
+.tab-1__mission h2 {
+    padding: 0;
+    margin: 0;
+    font: bold 45px/1 'PT Sans Narrow';
+    color: #000000;
+    position: relative;
+}
+.tab-1__mission h2::after {
+    content: "";
+    display: block;
+    width: 64px;
+    height: 8px;
+    object-fit: contain;
+    background-color: #00bffb;
+    position: absolute;
+    left: 0;
+    bottom: -41px;
+}
+.tab-1__mission h2 span {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+}
+.tab-1__mission h2 b {
+    font: bold 120px/1 'PT Sans Narrow';
+    text-transform: uppercase;
+    color: #fff;
+    display: block;
+    position: absolute;
+    left: 0px;
+    bottom: -10px;
+}
+.tab-1__mission_text {
+    margin: 71px 0 0 0;    
+    width: 830px;
+    font: 24px/31px 'PT Sans Narrow';    
+    color: #000000;
+}
+.tab-1__objects {
+    margin-top: 217px;
+    position: relative;
+}
+.tab-1__objects h2 {
+    padding: 0;
+    margin: 0 auto 94px auto;
+    font: bold 45px/1 'PT Sans Narrow';
+    text-align: center;
+    color: #000000;
+    position: relative;
+    display: table;
+}
+.tab-1__objects h2 span {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+}
+.tab-1__objects h2 b {
+    font: bold 120px/1 'PT Sans Narrow';
+    text-transform: uppercase;
+    color: #f5f5f5;
+    display: block;
+    position: absolute;
+    left: 0px;
+    bottom: -10px;
+}
+.tab-1__objects_list {
+    width: 900px;
+    margin: 118px auto 0 auto;
+    position: relative;
+}
+.tab-1__objects_list::after {
+    content: "";
+    display: block;
+    width: 740px;
+    height: 500px;
+    background-color: #f5f5f5;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.tab-1__objects_list .objects__slider_left {
+    width: 20px;
+    height: 36px;
+    display: block;
+    background: url(../img/bottom-slider-arrow.svg) no-repeat center / 20px 36px;
+    font-size: 0;
+    position: absolute;
+    left: -238px;
+    top: 245px;    
+    cursor: pointer;
+    z-index: 1;
+    border: none;
+    outline: none;
+    transform: rotate(180deg);
+    transition: all 250ms ease;
+}
+.tab-1__objects_list .objects__slider_right {
+    width: 20px;
+    height: 36px;
+    display: block;
+    background: url(../img/bottom-slider-arrow.svg) no-repeat center / 20px 36px;
+    font-size: 0;
+    position: absolute;
+    right: -238px;
+    top: 245px;    
+    cursor: pointer;
+    z-index: 1;
+    border: none;
+    outline: none;
+    transition: all 250ms ease;
+}
+.tab-1__objects_list .objects__slider_left:hover,
+.tab-1__objects_list .objects__slider_right:hover {
+    background-image: url(../img/bottom-slider-arrow-hover.svg);
+}
+.objects__slider {
+    position: relative;
+    z-index: 1;
+}
+.objects__slider_item {
+    padding-right: 100px;
+}
+.tab-1__objects .objects__slider_info {
+    height: 107px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+.tab-1__objects .objects__slider_info .number {
+    font: bold 45px/1 'PT Sans Narrow';
+    color: #0abefe;
+    margin-right: 130px;
+}
+.tab-1__objects .objects__slider_info .title {
+    font: bold 45px/1 'PT Sans Narrow';
+    color: #000;
+    overflow: hidden;
+}
+.tab-1__objects .objects__slider_info .title span {
+    display: inline-block;
+}
+
 /* ==========================================================================
    MAIN TAB-2 CALCULATOR classes
    ========================================================================== */
@@ -1616,8 +1766,7 @@ header .wrapper {
    ========================================================================== */
 footer {
     margin-top: 180px;
-    background-color: #f5f5f5;
-    padding-top: 125px;
+    background-color: #f5f5f5;    
 }
 footer h2 {
     padding: 0;
@@ -1657,19 +1806,20 @@ footer h2 b {
     color: #000000;
 }
 .footer__bottom {
-    margin-bottom: 77px;
+    display: flex;
+    height: 250px;
+    justify-content: space-between;
+    align-items: center;
 }
-.footer__bottom_logo {
-    float: left;
+.footer__bottom_logo {    
     width: 202px;
     height: 65px;
 }
 .footer__bottom_logo img {
-    width: 202px;
-    height: 65px;   
+    width: 100%;
+    height: 100%;
 }
-.footer__bottom_contact {
-    float: right;
+.footer__bottom_contact {    
     height: 36px;
     padding-left: 45px;
     font: 24px/36px 'PT Sans Narrow';
