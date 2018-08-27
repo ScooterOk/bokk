@@ -130,7 +130,7 @@
     .tab-1__experts h2,
     .tab-1__objects h2,
     .tab-1__mission h2 {
-        margin: 0 auto 94px auto;
+        margin: 0 auto 71px auto;
         font: bold 40px/1 'PT Sans Narrow';        
     }
     .tab-1__experts h2 b,
@@ -592,7 +592,7 @@
         width: 940px;
     }
     footer {
-        margin-top: 190px;
+        margin-top: 0;
         background-color: #f5f5f5;        
     }
     footer h2 {        
@@ -1214,7 +1214,7 @@
         display: block;
     }
     footer {
-        margin-top: 170px;
+        margin-top: 0;
         background-color: #f5f5f5;        
     }
     footer .wrapper {

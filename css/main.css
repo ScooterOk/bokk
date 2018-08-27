@@ -1510,7 +1510,7 @@ header .wrapper {
 .tab-1__mission {
     background-color: #f5f5f5;
     margin-top: 210px;
-    padding: 158px 0;
+    padding: 125px 0;
 }
 .tab-1__mission h2 {
     padding: 0;
@@ -1706,6 +1706,7 @@ header .wrapper {
 .main__tab-2_table-wrapper {
 	padding: 0 63px;
 	margin-top: -85px;
+    margin-bottom: 170px;
 }
 .main__tab-2_table {
 	list-style: none;
@@ -1765,7 +1766,7 @@ header .wrapper {
    FOOTER classes
    ========================================================================== */
 footer {
-    margin-top: 180px;
+    margin-top: 0;
     background-color: #f5f5f5;    
 }
 footer h2 {
@@ -1807,7 +1808,7 @@ footer h2 b {
 }
 .footer__bottom {
     display: flex;
-    height: 250px;
+    height: 220px;
     justify-content: space-between;
     align-items: center;
 }
